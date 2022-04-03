@@ -5,8 +5,7 @@
   
   :root {
     --hue-neutral: 200;
-    --hue-wrong: 0;
-    --hue-correct: 145;
+    --hue-selected: 180; 
   }
   
   body {
@@ -21,12 +20,8 @@
     background-color: hsl(var(--hue), 100%, 20%);
   }
   
-  body.correct {
-    --hue: var(--hue-correct);
-  }
-  
-  body.wrong {
-    --hue: var(--hue-wrong);
+  body.selected {
+    --hue: var(--hue-selected);
   }
   
   .container {
@@ -59,18 +54,12 @@
     border-color: black;
   }
   
-  .btn.correct {
-    --hue: var(--hue-correct);
+  .btn.selected {
+    --hue: var(--hue-selected);
     color: black;
   }
   
-  .btn.wrong {
-    --hue: var(--hue-wrong);
-  }
-  
   .controls {
-    position: relative;
-    display: flex;
     width: 800px;
     max-width: 100%;
   }
@@ -84,14 +73,13 @@
   }
 
   .prev-btn{
-   position: static;
     font-size: 1rem;
     font-weight: bold;
     padding: 1px 1px;
   }
+
   .next-btn{
-    position: absolute;
-    right: 0;
+    float: right;
     font-size: 1rem;
     font-weight: bold;
     padding: 1px 1px;
