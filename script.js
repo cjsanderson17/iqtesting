@@ -47,6 +47,14 @@ function showQuestion(question) {
     button.innerText = answer.text
     button.dataset.number = answer.number
     button.classList.add('answer-btns', 'btn')
+
+    const questionIndex = selectedAnswerList.indexOf('q' + (currentQuestionIndex + 1))
+    if (questionIndex != -1) {
+      if (selectedAnswerList[questionIndex + 1] == button.dataset.number) {
+        button.classList.add('selected')
+      }
+    } 
+    
     // adds correct tag to button iff answer is correct - useful for later
     if (answer.correct) {
         button.dataset.correct = answer.correct
@@ -82,7 +90,7 @@ function selectAnswer(e) {
   })
   selectedButton.classList.add('selected')
   // gets index of answer if in list already
-  questionIndex = selectedAnswerList.indexOf('q' + (currentQuestionIndex + 1))
+  const questionIndex = selectedAnswerList.indexOf('q' + (currentQuestionIndex + 1))
   if (questionIndex != -1) {
     selectedAnswerList[questionIndex + 1] = selectedButton.dataset.number
   } else {
