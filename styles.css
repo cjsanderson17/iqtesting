@@ -5,8 +5,7 @@
   
   :root {
     --hue-neutral: 200;
-    --hue-wrong: 0;
-    --hue-correct: 145;
+    --hue-selected: 180; 
   }
   
   body {
@@ -21,17 +20,46 @@
     background-color: hsl(var(--hue), 100%, 20%);
   }
   
-  body.correct {
-    --hue: var(--hue-correct);
+  body.selected {
+    --hue: var(--hue-selected);
   }
-  
-  body.wrong {
-    --hue: var(--hue-wrong);
+
+  #hud {
+    display: flex;
+    flex-flow: column;
+    width: 800px;
+    max-width: 80%;
+    justify-content: space-between;
+  }
+
+  #hud-text {
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    place-self: center;
+  }
+
+  #progress-bar {
+    width: 85%;
+    place-self: center;
+    height: 1.5rem;
+    border: 0.2rem solid black;
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 50px;
+    overflow: hidden;
+  }
+
+  #progress-bar-full {
+    height: 100%;
+    background: hsl(var(--hue-selected), 100%, 50%);
+    width:0%;
   }
   
   .container {
     width: 800px;
-    max-width: 80%;
+    max-width: 100%;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
@@ -59,42 +87,48 @@
     border-color: black;
   }
   
-  .btn.correct {
-    --hue: var(--hue-correct);
+  .btn.selected {
+    --hue: var(--hue-selected);
     color: black;
   }
   
-  .btn.wrong {
-    --hue: var(--hue-wrong);
-  }
-  
   .controls {
+    display: grid;
     position: relative;
-    display: flex;
-    width: 800px;
-    max-width: 100%;
+    grid-auto-flow: column;
+    padding-top: 10px;
+    width: 100%;
   }
 
-  .start-btn{
-    display: flex;
+  .start-btn {
     justify-content: center;
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;
   }
 
-  .prev-btn{
-   position: static;
+  .prev-btn {
     font-size: 1rem;
     font-weight: bold;
-    padding: 1px 1px;
+    padding: 1px 3px;
+    place-self: end start;
   }
-  .next-btn{
-    position: absolute;
-    right: 0;
+
+  .finish-btn{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 3px 3px;
+    place-self: center center;
+    position: fixed;
+    margin-bottom: 1;
+  }
+
+  .next-btn {
     font-size: 1rem;
     font-weight: bold;
-    padding: 1px 1px;
+    padding: 1px 3px;
+    margin-left: auto;
+    place-self: end end;
   }
   
   .hide {
