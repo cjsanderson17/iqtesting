@@ -2,6 +2,10 @@
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const prevButton = document.getElementById('prev-btn')
+const finishButton = document.getElementById('finish-btn')
+const progressText = document.getElementById('hud-text')
+const progressBarElement = document.getElementById('progress-bar')
+const progressBarFull = document.getElementById('progress-bar-full')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-btns')
@@ -25,7 +29,9 @@ prevButton.addEventListener('click', () => {
 // shuffles the questions and unhides them
 function startQuiz() {
   startButton.classList.add('hide')
+  progressText.classList.remove('hide')
   questionContainerElement.classList.remove('hide')
+  progressBarElement.classList.remove('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   setQuestion()
@@ -35,6 +41,7 @@ function startQuiz() {
 //
 function setQuestion() {
   resetState()
+  updateProgress()
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
@@ -96,8 +103,26 @@ function selectAnswer(e) {
   } else {
     selectedAnswerList.push('q' + (currentQuestionIndex + 1), selectedButton.dataset.number)
   }
+  updateProgress()
+  updateFinish()
   
   // send to database after 'finish' clicked
+}
+
+
+// updates progress bar
+function updateProgress() {
+  progressText.innerText = `Answered: ${selectedAnswerList.length / 2} / ${shuffledQuestions.length}`
+  let progressPercentage = ((selectedAnswerList.length / 2) / shuffledQuestions.length) * 100
+  progressBarFull.style.width = `${progressPercentage}%`
+}
+
+
+// updates if the user can finish
+function updateFinish() {
+  if ((selectedAnswerList.length / 2) == shuffledQuestions.length) {
+    finishButton.classList.remove('hide')
+  }
 }
 
 
@@ -112,9 +137,11 @@ const questions = [
     question: 'What is 2 + 2?',
     answers: [
       { number: 1, text: '4', correct: true },
-      { number: 2, text: '22', correct: false },
-      { number: 3, text: '222', correct: false },
-      { number: 4, text: '2222', correct: false }
+      { number: 2, text: '5', correct: false },
+      { number: 3, text: '6', correct: false },
+      { number: 4, text: '7', correct: false },
+      { number: 5, text: '8', correct: false },
+      { number: 6, text: '9', correct: false }
     ]
   },
   {
@@ -123,7 +150,9 @@ const questions = [
       { number: 1, text: 'Yes', correct: true },
       { number: 2, text: 'Yeah', correct: true, },
       { number: 3, text: 'Yep', correct: true, },
-      { number: 4, text: 'Ye', correct: true, }
+      { number: 4, text: 'Ye', correct: true, },
+      { number: 5, text: 'Ye', correct: true, },
+      { number: 6, text: 'Ye', correct: true, }
     ]
   },
   {
@@ -132,7 +161,9 @@ const questions = [
       { number: 1, text: 'A', correct: false, },
       { number: 2, text: 'B', correct: true, },
       { number: 3, text: 'C', correct: false, },
-      { number: 4, text: 'D', correct: false, }
+      { number: 4, text: 'D', correct: false, },
+      { number: 5, text: 'C', correct: false, },
+      { number: 6, text: 'C', correct: false, }
     ]
   },
   {
@@ -141,7 +172,9 @@ const questions = [
       { number: 1, text: '6', correct: false, },
       { number: 2, text: '6', correct: false, },
       { number: 3, text: '6', correct: false, },
-      { number: 4, text: '8', correct: true, }
+      { number: 4, text: '8', correct: true, },
+      { number: 5, text: '6', correct: false, },
+      { number: 6, text: '6', correct: false, }
     ]
   }
 ]
