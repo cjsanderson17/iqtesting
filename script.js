@@ -4,6 +4,7 @@ const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const prevButton = document.getElementById('prev-btn')
 const finishButton = document.getElementById('finish-btn')
+const countdownTimer = document.getElementById('timer')
 const progressText = document.getElementById('hud-text')
 const progressBarElement = document.getElementById('progress-bar')
 const progressBarFull = document.getElementById('progress-bar-full')
@@ -11,6 +12,7 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-btns')
 let shuffledQuestions, currentQuestionIndex
+let counter = 13
 let quizStarted = false
 
 
@@ -59,11 +61,13 @@ function startQuiz() {
   quizStarted = true
   startButton.classList.add('hide')
   finishButton.classList.remove('hide')
+  countdownTimer.classList.remove('hide')
   progressText.classList.remove('hide')
   questionContainerElement.classList.remove('hide')
   progressBarElement.classList.remove('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
+  startTimer(counter)
   setQuestion()
 }
 
@@ -71,6 +75,31 @@ function startQuiz() {
 // cleans up quiz and shows result
 function endQuiz() {
   console.log('got to finish')
+}
+
+
+// starts timer
+function startTimer(time) {
+  counter = setInterval(timer, 1000)
+  function timer() {
+    time--
+    timeMinutes = (Math.floor(time / 60))
+    if (timeMinutes < 10) {
+      timeMinutes = "0" + timeMinutes
+    }
+    timeSeconds = (time % 60)
+    if (timeSeconds < 10) {
+      timeSeconds = "0" + timeSeconds
+    }
+    if (timeSeconds == 10) {
+      countdownTimer.style.color = "red"
+    }
+    countdownTimer.textContent = timeMinutes + ":" + timeSeconds
+    if (time == 0) {
+      clearInterval(counter)
+      console.log("TIME UP")
+    }
+  }
 }
 
 
