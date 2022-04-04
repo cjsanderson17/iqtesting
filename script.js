@@ -133,7 +133,7 @@ function updateProgress() {
 
 // updates if the user can finish
 function updateFinish() {
-  if ((selectedAnswerList.length / 2) == shuffledQuestions.length) {
+  if ((selectedAnswerList.length / 3) == shuffledQuestions.length) {
     finishButton.classList.remove('unavailable')
   }
 }
