@@ -7,8 +7,8 @@ Here's a list of things to do:
   - Code
     - Calculate score
     - Send data to database
-    - Add images to buttons
   - Other
+    - Host Website
     - Design Questions
 
 Clean up to do:
@@ -18,4 +18,12 @@ Clean up to do:
     - Progress bar visuals
   - Code
     - Finalise form in which data is saved - currentlyincludes text for me to read
+    - Clean up functions
+    - Clean up css
+
+Other things:
+  - No internet connection when data sent?
+  - Check Display in all different window sizes
+  - Randomise answer placement
+
 
