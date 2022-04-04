@@ -13,7 +13,7 @@
   img {
     max-width: 100%;
     max-height: 100%;
-    place-self: center;
+    place-self: start center;
     padding: 10px
   }
 
@@ -65,6 +65,7 @@
     margin-top: 0.8rem;
     margin-bottom: 1rem;
     border-radius: 50px;
+    background-color: white;
     overflow: hidden;
   }
 
@@ -76,6 +77,7 @@
   
   .container {
     width: 1200px;
+    height: 800px;
     max-width: 100%;
     background-color: white;
     border-radius: 5px;
@@ -119,13 +121,23 @@
 
   .slide {
     display: grid;
+    position: relative;
+    grid-auto-flow: row;
+    height: 100%;
   }
 
   .continue-btn {
-   text-align: center;
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: bold;
     padding: 5px 5px;
+    place-self: end center;
+  }
+
+  .start-btn {
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 5px 5px;
+    place-self: end center;
   }
 
   .controls {
@@ -133,13 +145,7 @@
     position: relative;
     grid-auto-flow: column;
     width: 100%;
-  }
-
-  .start-btn {
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 5px 5px;
-    place-self: end end;
+    place-self: end;
   }
 
   .prev-btn {
@@ -155,7 +161,6 @@
     padding: 5px 5px;
     place-self: center center;
     position: fixed;
-    margin-bottom: 1;
   }
 
   .next-btn {
