@@ -8,8 +8,8 @@ const countdownTimer = document.getElementById('timer')
 const progressText = document.getElementById('hud-text')
 const progressBarElement = document.getElementById('progress-bar')
 const progressBarFull = document.getElementById('progress-bar-full')
-const questionContainerElement = document.getElementById('question-container')
-const questionElement = document.getElementById('question')
+const questionContainerElement = document.getElementById('answer-btns')
+//const questionElement = document.getElementById('question')
 const questionImage = document.getElementById('main-image')
 const answerButtonsElement = document.getElementById('answer-btns')
 let shuffledQuestions, currentQuestionIndex
@@ -60,6 +60,7 @@ function loadInfoPage() {
 // shuffles the questions and unhides them
 function startQuiz() {
   quizStarted = true
+  //questionElement.classList.add('hide')
   startButton.classList.add('hide')
   finishButton.classList.remove('hide')
   countdownTimer.classList.remove('hide')
@@ -93,7 +94,7 @@ function loadEndPage(score) {
   progressBarElement.classList.add('hide')
   progressBarFull.classList.add('hide')
   answerButtonsElement.classList.add('hide')
-  questionElement.innerText = "Your score was: " + score
+  //questionElement.innerText = "Your score was: " + score
   questionImage.classList.add('hide')
 }
 
@@ -112,7 +113,7 @@ function startTimer(time) {
     if (timeSeconds < 10) {
       timeSeconds = "0" + timeSeconds
     }
-    if (timeSeconds == 10) {
+    if (time == 10) {
       countdownTimer.style.color = "red"
     }
     countdownTimer.textContent = timeMinutes + ":" + timeSeconds
@@ -134,10 +135,9 @@ function setQuestion() {
 
 // applies questions to buttons
 function showQuestion(question) {
-  questionElement.innerText = question.question
   question.answers.forEach(answer => {
     const button = document.createElement('button')
-    button.innerText = answer.text
+    button.style.backgroundImage = answer.img
     button.dataset.number = answer.number
     button.dataset.id = question.id
     button.classList.add('answer-btns', 'btn')
@@ -224,7 +224,7 @@ const questions = [
     question: 'What is 2 + 2?',
     id: 1,
     answers: [
-      { number: 1, text: '4', correct: true },
+      { number: 1, img: "URL('/images/greenSquare.jpg')", correct: true },
       { number: 2, text: '5', correct: false },
       { number: 3, text: '6', correct: false },
       { number: 4, text: '7', correct: false },
