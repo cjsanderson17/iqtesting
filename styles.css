@@ -3,9 +3,11 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
   
+  /* comment */
   :root {
     --hue-neutral: 200;
-    --hue-selected: 180; 
+    --hue-selected: 180;
+    --saturation-unavailable: 20%; 
   }
   
   body {
@@ -90,6 +92,13 @@
   .btn.selected {
     --hue: var(--hue-selected);
     color: black;
+  }
+
+  .btn.unavailable {
+    --hue: var(--hue-neutral);
+    --saturation: var(--saturation-unavailable);
+    color: rgb(4, 45, 99);
+    background-color: hsl(var(--hue), var(--saturation), 50%);
   }
   
   .controls {
