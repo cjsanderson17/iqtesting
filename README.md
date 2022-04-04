@@ -1,12 +1,21 @@
 # iqtesting
 Here's a list of things to do:
-  - Create img for welcome and info pages
-  - Add finish button functionality
-  - Calculate score
-  - Send data to database
-  - Add pictures to buttons
-  - Create questions
+  - Visual Design
+    - Create image for Welcome page
+    - Create image for Info page
+    - Create images for questions
+  - Code
+    - Calculate score
+    - Send data to database
+    - Add images to buttons
+  - Other
+    - Design Questions
 
 Clean up to do:
-  - Colour scheme, background, text, buttons, unavailable btn, progress bar etc.
-  - How data is saved locally, currently includes text so i can read it easily
+  - Visual Design
+    - Colour scheme
+    - Button visuals
+    - Progress bar visuals
+  - Code
+    - Finalise form in which data is saved - currentlyincludes text for me to read
+
