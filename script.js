@@ -65,11 +65,12 @@ function showQuestion(question) {
     const button = document.createElement('button')
     button.innerText = answer.text
     button.dataset.number = answer.number
+    button.dataset.id = question.id
     button.classList.add('answer-btns', 'btn')
 
-    const questionIndex = selectedAnswerList.indexOf('q' + (currentQuestionIndex + 1))
+    const questionIndex = selectedAnswerList.indexOf('order: ' + (currentQuestionIndex + 1))
     if (questionIndex != -1) {
-      if (selectedAnswerList[questionIndex + 1] == button.dataset.number) {
+      if (selectedAnswerList[questionIndex - 1] == button.dataset.number) {
         button.classList.add('selected')
       }
     } 
@@ -109,11 +110,11 @@ function selectAnswer(e) {
   })
   selectedButton.classList.add('selected')
   // gets index of answer if in list already
-  const questionIndex = selectedAnswerList.indexOf('q' + (currentQuestionIndex + 1))
+  const questionIndex = selectedAnswerList.indexOf('id: ' + (selectedButton.dataset.id))
   if (questionIndex != -1) {
-    selectedAnswerList[questionIndex + 1] = selectedButton.dataset.number
+    selectedAnswerList[questionIndex + 1] = (selectedButton.dataset.number)
   } else {
-    selectedAnswerList.push('q' + (currentQuestionIndex + 1), selectedButton.dataset.number)
+    selectedAnswerList.push('id: ' + (selectedButton.dataset.id), selectedButton.dataset.number, 'order: ' + (currentQuestionIndex + 1))
   }
   updateProgress()
   updateFinish()
@@ -124,8 +125,8 @@ function selectAnswer(e) {
 
 // updates progress bar
 function updateProgress() {
-  progressText.innerText = `Answered: ${selectedAnswerList.length / 2} / ${shuffledQuestions.length}`
-  let progressPercentage = ((selectedAnswerList.length / 2) / shuffledQuestions.length) * 100
+  progressText.innerText = `Answered: ${selectedAnswerList.length / 3} / ${shuffledQuestions.length}`
+  let progressPercentage = ((selectedAnswerList.length / 3) / shuffledQuestions.length) * 100
   progressBarFull.style.width = `${progressPercentage}%`
 }
 
@@ -147,6 +148,7 @@ function removeSelected(element) {
 const questions = [
   {
     question: 'What is 2 + 2?',
+    id: 1,
     answers: [
       { number: 1, text: '4', correct: true },
       { number: 2, text: '5', correct: false },
@@ -158,6 +160,7 @@ const questions = [
   },
   {
     question: 'Edit',
+    id: 2,
     answers: [
       { number: 1, text: 'Yes', correct: true },
       { number: 2, text: 'Yeah', correct: true, },
@@ -169,6 +172,7 @@ const questions = [
   },
   {
     question: 'Edit',
+    id: 3,
     answers: [
       { number: 1, text: 'A', correct: false, },
       { number: 2, text: 'B', correct: true, },
@@ -180,6 +184,7 @@ const questions = [
   },
   {
     question: 'What is 4 * 2?',
+    id: 4,
     answers: [
       { number: 1, text: '6', correct: false, },
       { number: 2, text: '6', correct: false, },
