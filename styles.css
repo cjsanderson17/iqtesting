@@ -13,8 +13,8 @@
   img {
     max-width: 100%;
     max-height: 100%;
-    place-self: start center;
-    padding: 10px
+    place-self: center;
+    padding-bottom: 10px;
   }
 
   body {
@@ -38,7 +38,6 @@
     flex-flow: column;
     width: 1200px;
     max-width: 80%;
-    justify-content: space-between;
   }
 
   #hud-text {
@@ -76,10 +75,8 @@
   }
   
   .container {
-    width: 1200px;
-    height: 800px;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 80%;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
@@ -88,9 +85,16 @@
   
   .btn-grid {
     display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 10px;
-    margin: 20px 0;
+    position: relative;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 20px;
+    margin: 20px 20px;
+  }
+
+  .btn-grid button {
+    max-width: 20%;
+    aspect-ratio: 1;
+    place-self: center;
   }
   
   .btn {
@@ -103,6 +107,13 @@
     outline: none;
     font-size: 1.5rem;
   }
+
+  .answer-btns {
+    background-size: 100%;
+    border: 5px solid hsl(var(--hue), 100%, 30%);;
+    width: 100%;
+    background-image: url('/images/blackSquare.jpg');
+  }
   
   .btn:hover {
     border-color: black;
@@ -111,6 +122,7 @@
   .btn.selected {
     --hue: var(--hue-selected);
     color: black;
+    border-color: green;
   }
 
   .btn.unavailable {
