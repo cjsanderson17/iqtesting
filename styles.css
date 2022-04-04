@@ -10,6 +10,13 @@
     --saturation-unavailable: 20%; 
   }
   
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    place-self: center;
+    padding: 10px
+  }
+
   body {
     --hue: var(--hue-neutral);
     padding: 0;
@@ -29,7 +36,7 @@
   #hud {
     display: flex;
     flex-flow: column;
-    width: 800px;
+    width: 1200px;
     max-width: 80%;
     justify-content: space-between;
   }
@@ -60,7 +67,7 @@
   }
   
   .container {
-    width: 800px;
+    width: 1200px;
     max-width: 100%;
     background-color: white;
     border-radius: 5px;
@@ -83,6 +90,7 @@
     padding: 5px 10px;
     color: white;
     outline: none;
+    font-size: 1.5rem;
   }
   
   .btn:hover {
@@ -100,42 +108,52 @@
     color: rgb(4, 45, 99);
     background-color: hsl(var(--hue), var(--saturation), 50%);
   }
-  
+
+  .slide {
+    display: grid;
+  }
+
+  .continue-btn {
+   text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px 5px;
+  }
+
   .controls {
     display: grid;
     position: relative;
     grid-auto-flow: column;
-    padding-top: 10px;
     width: 100%;
   }
 
   .start-btn {
-    justify-content: center;
     font-size: 1.5rem;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 5px 5px;
+    place-self: end end;
   }
 
   .prev-btn {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    padding: 1px 3px;
+    padding: 5px 5px;
     place-self: end start;
   }
 
   .finish-btn{
     font-size: 1.5rem;
     font-weight: bold;
-    padding: 3px 3px;
+    padding: 5px 5px;
     place-self: center center;
     position: fixed;
     margin-bottom: 1;
   }
 
   .next-btn {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    padding: 1px 3px;
+    padding: 5px 5px;
     margin-left: auto;
     place-self: end end;
   }
