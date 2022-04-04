@@ -1,12 +1,29 @@
 # iqtesting
 Here's a list of things to do:
-  - Grey out finish button rather than hiding it
-  - Locally save questionID's so question index can be linked (so when analysing data I know which question is which,
-    as currently they are saved as q1, q2, etc.
-  - Add information page at start
-  - Add finish button functionality
-  - Calculate score
-  - Send data to database
-  - Help page
-  - Add pictures to buttons
-  - Create questions
+  - Visual Design
+    - Create image for Welcome page
+    - Create image for Info page
+    - Create images for questions
+  - Code
+    - Calculate score
+    - Send data to database
+  - Other
+    - Host Website
+    - Design Questions
+
+Clean up to do:
+  - Visual Design
+    - Colour scheme
+    - Button visuals
+    - Progress bar visuals
+  - Code
+    - Finalise form in which data is saved - currentlyincludes text for me to read
+    - Clean up functions
+    - Clean up css
+
+Other things:
+  - No internet connection when data sent?
+  - Check Display in all different window sizes
+  - Randomise answer placement
+
+

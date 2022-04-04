@@ -3,11 +3,20 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
   
+  /* comment */
   :root {
     --hue-neutral: 200;
-    --hue-selected: 180; 
+    --hue-selected: 180;
+    --saturation-unavailable: 20%; 
   }
   
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    place-self: center;
+    padding-bottom: 10px;
+  }
+
   body {
     --hue: var(--hue-neutral);
     padding: 0;
@@ -27,15 +36,22 @@
   #hud {
     display: flex;
     flex-flow: column;
-    width: 800px;
+    width: 1200px;
     max-width: 80%;
-    justify-content: space-between;
   }
 
   #hud-text {
     text-align: center;
     color: white;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    place-self: center;
+  }
+
+  #timer {
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
     font-weight: bold;
     place-self: center;
   }
@@ -48,6 +64,7 @@
     margin-top: 0.8rem;
     margin-bottom: 1rem;
     border-radius: 50px;
+    background-color: white;
     overflow: hidden;
   }
 
@@ -58,8 +75,8 @@
   }
   
   .container {
-    width: 800px;
     max-width: 100%;
+    max-height: 80%;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
@@ -68,9 +85,16 @@
   
   .btn-grid {
     display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 10px;
-    margin: 20px 0;
+    position: relative;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 20px;
+    margin: 20px 20px;
+  }
+
+  .btn-grid button {
+    max-width: 20%;
+    aspect-ratio: 1;
+    place-self: center;
   }
   
   .btn {
@@ -81,6 +105,14 @@
     padding: 5px 10px;
     color: white;
     outline: none;
+    font-size: 1.5rem;
+  }
+
+  .answer-btns {
+    background-size: 100%;
+    border: 5px solid hsl(var(--hue), 100%, 30%);;
+    width: 100%;
+    background-image: url('/images/blackSquare.jpg');
   }
   
   .btn:hover {
@@ -90,44 +122,67 @@
   .btn.selected {
     --hue: var(--hue-selected);
     color: black;
+    border-color: green;
   }
-  
-  .controls {
+
+  .btn.unavailable {
+    --hue: var(--hue-neutral);
+    --saturation: var(--saturation-unavailable);
+    color: rgb(4, 45, 99);
+    background-color: hsl(var(--hue), var(--saturation), 50%);
+  }
+
+  .slide {
     display: grid;
     position: relative;
-    grid-auto-flow: column;
-    padding-top: 10px;
-    width: 100%;
+    grid-auto-flow: row;
+    height: 100%;
+  }
+
+  .continue-btn {
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 5px 5px;
+    place-self: end center;
   }
 
   .start-btn {
-    justify-content: center;
-    font-size: 1.5rem;
+    font-size: 3rem;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 5px 5px;
+    place-self: end center;
+  }
+
+  .controls {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "prev finish next";
+    width: 100%;
+    place-self: end;
   }
 
   .prev-btn {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    padding: 1px 3px;
+    padding: 5px 5px;
+    grid-area: prev;
     place-self: end start;
   }
 
   .finish-btn{
     font-size: 1.5rem;
     font-weight: bold;
-    padding: 3px 3px;
+    padding: 5px 5px;
+    grid-area: finish;
     place-self: center center;
-    position: fixed;
-    margin-bottom: 1;
   }
 
   .next-btn {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    padding: 1px 3px;
-    margin-left: auto;
+    padding: 5px 5px;
+    grid-area: next;
     place-self: end end;
   }
   
