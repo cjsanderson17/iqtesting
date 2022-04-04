@@ -15,6 +15,11 @@ let shuffledQuestions, currentQuestionIndex
 // defines behaviour for buttons when clicked
 startButton.addEventListener('click', startQuiz)
 
+finishButton.addEventListener('click', () => {
+  if (finishButton.classList.contains('unavailable') == false) {
+    endQuiz()
+  }
+})
 nextButton.addEventListener('click', () => {
   currentQuestionIndex++
   setQuestion()
@@ -29,12 +34,19 @@ prevButton.addEventListener('click', () => {
 // shuffles the questions and unhides them
 function startQuiz() {
   startButton.classList.add('hide')
+  finishButton.classList.remove('hide')
   progressText.classList.remove('hide')
   questionContainerElement.classList.remove('hide')
   progressBarElement.classList.remove('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   setQuestion()
+}
+
+
+// cleans up quiz and shows result
+function endQuiz() {
+  console.log('got to finish')
 }
 
 
@@ -121,7 +133,7 @@ function updateProgress() {
 // updates if the user can finish
 function updateFinish() {
   if ((selectedAnswerList.length / 2) == shuffledQuestions.length) {
-    finishButton.classList.remove('hide')
+    finishButton.classList.remove('unavailable')
   }
 }
 
