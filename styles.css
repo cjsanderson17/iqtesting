@@ -79,6 +79,7 @@
     width: 1200px;
     height: 800px;
     max-width: 100%;
+    max-height: 100%;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
@@ -143,7 +144,8 @@
   .controls {
     display: grid;
     position: relative;
-    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "prev finish next";
     width: 100%;
     place-self: end;
   }
@@ -152,6 +154,7 @@
     font-size: 1.5rem;
     font-weight: bold;
     padding: 5px 5px;
+    grid-area: prev;
     place-self: end start;
   }
 
@@ -159,15 +162,15 @@
     font-size: 1.5rem;
     font-weight: bold;
     padding: 5px 5px;
+    grid-area: finish;
     place-self: center center;
-    position: fixed;
   }
 
   .next-btn {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 5px 5px;
-    margin-left: auto;
+    grid-area: next;
     place-self: end end;
   }
   
