@@ -1,4 +1,5 @@
 // defining elements
+const continueButton = document.getElementById('continue-btn')
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const prevButton = document.getElementById('prev-btn')
@@ -10,9 +11,12 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-btns')
 let shuffledQuestions, currentQuestionIndex
+let quizStarted = false
 
 
 // defines behaviour for buttons when clicked
+continueButton.addEventListener('click', loadInfoPage)
+
 startButton.addEventListener('click', startQuiz)
 
 finishButton.addEventListener('click', () => {
@@ -26,13 +30,33 @@ nextButton.addEventListener('click', () => {
 })
 
 prevButton.addEventListener('click', () => {
+  if (quizStarted == false) {
+    loadWelcomePage()
+  } else {
     currentQuestionIndex--
     setQuestion()
+  }
 })
+
+
+// loads the welcome page
+function loadWelcomePage() {
+  continueButton.classList.remove('hide')
+  startButton.classList.add('hide')
+  prevButton.classList.add('hide')
+}
+
+// loads the information page
+function loadInfoPage() {
+  continueButton.classList.add('hide')
+  startButton.classList.remove('hide')
+  prevButton.classList.remove('hide')
+}
 
 
 // shuffles the questions and unhides them
 function startQuiz() {
+  quizStarted = true
   startButton.classList.add('hide')
   finishButton.classList.remove('hide')
   progressText.classList.remove('hide')
