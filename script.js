@@ -10,9 +10,10 @@ const progressBarElement = document.getElementById('progress-bar')
 const progressBarFull = document.getElementById('progress-bar-full')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
+const questionImage = document.getElementById('main-image')
 const answerButtonsElement = document.getElementById('answer-btns')
 let shuffledQuestions, currentQuestionIndex
-let counter = 13
+let counter = 1200
 let quizStarted = false
 
 
@@ -74,7 +75,26 @@ function startQuiz() {
 
 // cleans up quiz and shows result
 function endQuiz() {
-  console.log('got to finish')
+  console.log(window.value)
+  clearInterval(counter)
+  selectedAnswerList.push("time remaining: " + window.value)
+  score = "calculation"
+  loadEndPage(score)
+}
+
+
+// loads the end page
+function loadEndPage(score) {
+  nextButton.classList.add('hide')
+  prevButton.classList.add('hide')
+  finishButton.classList.add('hide')
+  countdownTimer.classList.add('hide')
+  progressText.classList.add('hide')
+  progressBarElement.classList.add('hide')
+  progressBarFull.classList.add('hide')
+  answerButtonsElement.classList.add('hide')
+  questionElement.innerText = "Your score was: " + score
+  questionImage.classList.add('hide')
 }
 
 
@@ -83,6 +103,7 @@ function startTimer(time) {
   counter = setInterval(timer, 1000)
   function timer() {
     time--
+    window.value = time
     timeMinutes = (Math.floor(time / 60))
     if (timeMinutes < 10) {
       timeMinutes = "0" + timeMinutes
@@ -97,7 +118,7 @@ function startTimer(time) {
     countdownTimer.textContent = timeMinutes + ":" + timeSeconds
     if (time == 0) {
       clearInterval(counter)
-      console.log("TIME UP")
+      endQuiz() 
     }
   }
 }
