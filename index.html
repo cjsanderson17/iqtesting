@@ -10,15 +10,19 @@
 </head>
 <body>
   <div id="hud">
-    <div id="timer" class="hide">20:00</div>
-    <div id="hud-text" class="hide"></div>
-    <div id="progress-bar" class="hide">
-      <div id="progress-bar-full"></div>
+    <div class="hud-elements">
+      <div id="timer" class="hide">20:00</div>
+      <div id="hud-text" class="hide"></div>
+      <div id="progress-bar" class="hide">
+        <div id="progress-bar-full"></div>
+      </div>
     </div>
-    <div class="container">
-      <div class="slide">
-        <img src="images/test.jpg" alt="A black square" id="main-image">
+    <div class="question-window">
+      <img src="images/welcomePageImage.jpg" alt="A black square" id="main-image">
+      <div class="button-space">
         <div id="score-text" class="hide">Score</div>
+        <button id="continue-btn" class="continue-btn btn">Continue</button>
+        <button id="start-btn" class="start-btn btn hide">Start</button>
         <div id="answer-btns" class="btn-grid hide">
           <button class="btn">Answer 1</button>
           <button class="btn">Answer 2</button>
@@ -27,13 +31,11 @@
           <button class="btn">Answer 5</button>
           <button class="btn">Answer 6</button>
         </div>
-        <button id="continue-btn" class="continue-btn btn">Continue</button>
-        <button id="start-btn" class="start-btn btn hide">Start</button>
-        <div class="controls">
-          <button id="prev-btn" class="prev-btn btn hide">Prev</button>
-          <button id="finish-btn" class="finish-btn btn hide unavailable">Finish</button>
-          <button id="next-btn" class="next-btn btn hide">Next</button> 
-        </div>
+      </div>
+      <div class="controls">
+        <button id="prev-btn" class="prev-btn btn hide">Prev</button>
+        <button id="finish-btn" class="finish-btn btn hide unavailable">Finish</button>
+        <button id="next-btn" class="next-btn btn hide">Next</button> 
       </div>
     </div>
   <div>
