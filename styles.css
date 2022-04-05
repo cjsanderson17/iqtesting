@@ -125,14 +125,12 @@
     padding: 0.8rem;
     margin: 0.8rem;
     gap: 1.5rem;
+    column-gap: 2rem;
 
     display: grid;
     grid-template-columns: repeat(3, auto);
     flex-wrap: wrap;
     justify-content: center;
-  
-
-    background-color: red;
   }
 
   .btn-grid button {
