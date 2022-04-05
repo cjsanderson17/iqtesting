@@ -78,8 +78,22 @@ function endQuiz() {
   console.log(window.value)
   clearInterval(counter)
   selectedAnswerList.push("time remaining: " + window.value)
-  score = [5, 130]
+  score = calculateScore(selectedAnswerList, shuffledQuestions.length)
   loadEndPage(score)
+}
+
+
+//
+function calculateScore(list, noOfQuestions) {
+  let score = 0
+  for (let i = 1; i <= noOfQuestions; i++) {
+    if (list[4*i - 2] == "true") {
+      score++
+    }
+  }
+  const iq = 140 * score / noOfQuestions
+  scores = [score, iq]
+  return scores
 }
 
 
@@ -139,6 +153,7 @@ function showQuestion(question) {
     const button = document.createElement('button')
     button.style.backgroundImage = answer.img
     button.dataset.number = answer.number
+    button.dataset.correct = answer.correct
     button.dataset.id = question.id
     button.classList.add('answer-btns', 'btn')
 
@@ -188,7 +203,7 @@ function selectAnswer(e) {
   if (questionIndex != -1) {
     selectedAnswerList[questionIndex + 1] = (selectedButton.dataset.number)
   } else {
-    selectedAnswerList.push('id: ' + (selectedButton.dataset.id), selectedButton.dataset.number, 'order: ' + (currentQuestionIndex + 1))
+    selectedAnswerList.push('id: ' + (selectedButton.dataset.id), selectedButton.dataset.number, selectedButton.dataset.correct, 'order: ' + (currentQuestionIndex + 1))
   }
   updateProgress()
   updateFinish()
@@ -199,15 +214,15 @@ function selectAnswer(e) {
 
 // updates progress bar
 function updateProgress() {
-  progressText.innerText = `Answered: ${selectedAnswerList.length / 3} / ${shuffledQuestions.length}`
-  let progressPercentage = ((selectedAnswerList.length / 3) / shuffledQuestions.length) * 100
+  progressText.innerText = `Answered: ${selectedAnswerList.length / 4} / ${shuffledQuestions.length}`
+  let progressPercentage = ((selectedAnswerList.length / 4) / shuffledQuestions.length) * 100
   progressBarFull.style.width = `${progressPercentage}%`
 }
 
 
 // updates if the user can finish
 function updateFinish() {
-  if ((selectedAnswerList.length / 3) == shuffledQuestions.length) {
+  if ((selectedAnswerList.length / 4) == shuffledQuestions.length) {
     finishButton.classList.remove('unavailable')
   }
 }
