@@ -48,6 +48,14 @@
     place-self: center;
   }
 
+  #score-text {
+    text-align: center;
+    color: black;
+    font-size: 3rem;
+    font-weight: bold;
+    place-self: center;
+  }
+
   #timer {
     text-align: center;
     color: white;

@@ -9,9 +9,9 @@ const progressText = document.getElementById('hud-text')
 const progressBarElement = document.getElementById('progress-bar')
 const progressBarFull = document.getElementById('progress-bar-full')
 const questionContainerElement = document.getElementById('answer-btns')
-//const questionElement = document.getElementById('question')
 const questionImage = document.getElementById('main-image')
 const answerButtonsElement = document.getElementById('answer-btns')
+const scoreText = document.getElementById('score-text')
 let shuffledQuestions, currentQuestionIndex
 let counter = 1200
 let quizStarted = false
@@ -60,7 +60,6 @@ function loadInfoPage() {
 // shuffles the questions and unhides them
 function startQuiz() {
   quizStarted = true
-  //questionElement.classList.add('hide')
   startButton.classList.add('hide')
   finishButton.classList.remove('hide')
   countdownTimer.classList.remove('hide')
@@ -79,13 +78,27 @@ function endQuiz() {
   console.log(window.value)
   clearInterval(counter)
   selectedAnswerList.push("time remaining: " + window.value)
-  score = "calculation"
+  score = calculateScore(selectedAnswerList, shuffledQuestions.length)
   loadEndPage(score)
 }
 
 
+//
+function calculateScore(list, noOfQuestions) {
+  let score = 0
+  for (let i = 1; i <= noOfQuestions; i++) {
+    if (list[4*i - 2] == "true") {
+      score++
+    }
+  }
+  const iq = 140 * score / noOfQuestions
+  scores = [score, iq]
+  return scores
+}
+
+
 // loads the end page
-function loadEndPage(score) {
+function loadEndPage(scores) {
   nextButton.classList.add('hide')
   prevButton.classList.add('hide')
   finishButton.classList.add('hide')
@@ -94,7 +107,8 @@ function loadEndPage(score) {
   progressBarElement.classList.add('hide')
   progressBarFull.classList.add('hide')
   answerButtonsElement.classList.add('hide')
-  //questionElement.innerText = "Your score was: " + score
+  scoreText.classList.remove('hide')
+  scoreText.innerText = "Your score was: " + scores[0] + " / " + shuffledQuestions.length + "\nEstimated IQ: " + scores[1]
   questionImage.classList.add('hide')
 }
 
@@ -139,6 +153,7 @@ function showQuestion(question) {
     const button = document.createElement('button')
     button.style.backgroundImage = answer.img
     button.dataset.number = answer.number
+    button.dataset.correct = answer.correct
     button.dataset.id = question.id
     button.classList.add('answer-btns', 'btn')
 
@@ -188,7 +203,7 @@ function selectAnswer(e) {
   if (questionIndex != -1) {
     selectedAnswerList[questionIndex + 1] = (selectedButton.dataset.number)
   } else {
-    selectedAnswerList.push('id: ' + (selectedButton.dataset.id), selectedButton.dataset.number, 'order: ' + (currentQuestionIndex + 1))
+    selectedAnswerList.push('id: ' + (selectedButton.dataset.id), selectedButton.dataset.number, selectedButton.dataset.correct, 'order: ' + (currentQuestionIndex + 1))
   }
   updateProgress()
   updateFinish()
@@ -199,15 +214,15 @@ function selectAnswer(e) {
 
 // updates progress bar
 function updateProgress() {
-  progressText.innerText = `Answered: ${selectedAnswerList.length / 3} / ${shuffledQuestions.length}`
-  let progressPercentage = ((selectedAnswerList.length / 3) / shuffledQuestions.length) * 100
+  progressText.innerText = `Answered: ${selectedAnswerList.length / 4} / ${shuffledQuestions.length}`
+  let progressPercentage = ((selectedAnswerList.length / 4) / shuffledQuestions.length) * 100
   progressBarFull.style.width = `${progressPercentage}%`
 }
 
 
 // updates if the user can finish
 function updateFinish() {
-  if ((selectedAnswerList.length / 3) == shuffledQuestions.length) {
+  if ((selectedAnswerList.length / 4) == shuffledQuestions.length) {
     finishButton.classList.remove('unavailable')
   }
 }
