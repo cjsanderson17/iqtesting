@@ -19,7 +19,6 @@ Clean up to do:
   - Code
     - Finalise form in which data is saved - currentlyincludes text for me to read
     - Clean up functions
-    - Clean up css
 
 Other things:
   - No internet connection when data sent?
