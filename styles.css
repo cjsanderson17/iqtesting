@@ -36,8 +36,8 @@
   #hud {
     display: flex;
     flex-flow: column;
-    width: 1200px;
-    max-width: 80%;
+    width: 90%;
+    height: 90%;
   }
 
   #hud-text {
@@ -65,7 +65,7 @@
   }
 
   #progress-bar {
-    width: 85%;
+    width: 80%;
     place-self: center;
     height: 1.5rem;
     border: 0.2rem solid black;
@@ -83,8 +83,9 @@
   }
   
   .container {
-    max-width: 100%;
-    max-height: 80%;
+    place-self: center;
+    width: 90%;
+    height: 90%;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
@@ -93,14 +94,15 @@
   
   .btn-grid {
     display: grid;
-    position: relative;
     grid-template-columns: repeat(3, auto);
     grid-gap: 20px;
     margin: 20px 20px;
+    max-height: fit-content;
+    background-color: green;
   }
 
   .btn-grid button {
-    max-width: 30%;
+    height: 100%;
     aspect-ratio: 1;
     background-color: white;
     place-self: center;
@@ -120,7 +122,6 @@
   .answer-btns {
     background-size: 100%;
     border: 5px solid hsl(var(--hue), 100%, 30%);;
-    width: 100%;
     background-image: url('images/blackSquare.jpg');
   }
   
@@ -146,6 +147,7 @@
     position: relative;
     grid-auto-flow: row;
     height: 100%;
+    background-color: red;
   }
 
   .continue-btn {
