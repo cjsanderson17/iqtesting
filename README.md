@@ -25,5 +25,6 @@ Other things:
   - Check Display in all different window sizes
   - Randomise answer placement
   - Feedback comment option
+  - Arrow keys for next and prev
 
 
