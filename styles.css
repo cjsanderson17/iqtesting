@@ -6,7 +6,7 @@
   /* comment */
   :root {
     --hue-neutral: 200;
-    --hue-selected: 180;
+    --hue-selected: 180; 
     --saturation-unavailable: 20%; 
   }
   
@@ -100,8 +100,9 @@
   }
 
   .btn-grid button {
-    max-width: 20%;
+    max-width: 30%;
     aspect-ratio: 1;
+    background-color: white;
     place-self: center;
   }
   
