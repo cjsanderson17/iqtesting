@@ -121,7 +121,7 @@
     background-size: 100%;
     border: 5px solid hsl(var(--hue), 100%, 30%);;
     width: 100%;
-    background-image: url('/images/blackSquare.jpg');
+    background-image: url('images/blackSquare.jpg');
   }
   
   .btn:hover {
