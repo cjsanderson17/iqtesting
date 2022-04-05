@@ -9,9 +9,9 @@ const progressText = document.getElementById('hud-text')
 const progressBarElement = document.getElementById('progress-bar')
 const progressBarFull = document.getElementById('progress-bar-full')
 const questionContainerElement = document.getElementById('answer-btns')
-//const questionElement = document.getElementById('question')
 const questionImage = document.getElementById('main-image')
 const answerButtonsElement = document.getElementById('answer-btns')
+const scoreText = document.getElementById('score-text')
 let shuffledQuestions, currentQuestionIndex
 let counter = 1200
 let quizStarted = false
@@ -60,7 +60,6 @@ function loadInfoPage() {
 // shuffles the questions and unhides them
 function startQuiz() {
   quizStarted = true
-  //questionElement.classList.add('hide')
   startButton.classList.add('hide')
   finishButton.classList.remove('hide')
   countdownTimer.classList.remove('hide')
@@ -79,13 +78,13 @@ function endQuiz() {
   console.log(window.value)
   clearInterval(counter)
   selectedAnswerList.push("time remaining: " + window.value)
-  score = "calculation"
+  score = [5, 130]
   loadEndPage(score)
 }
 
 
 // loads the end page
-function loadEndPage(score) {
+function loadEndPage(scores) {
   nextButton.classList.add('hide')
   prevButton.classList.add('hide')
   finishButton.classList.add('hide')
@@ -94,7 +93,8 @@ function loadEndPage(score) {
   progressBarElement.classList.add('hide')
   progressBarFull.classList.add('hide')
   answerButtonsElement.classList.add('hide')
-  //questionElement.innerText = "Your score was: " + score
+  scoreText.classList.remove('hide')
+  scoreText.innerText = "Your score was: " + scores[0] + " / " + shuffledQuestions.length + "\nEstimated IQ: " + scores[1]
   questionImage.classList.add('hide')
 }
 
