@@ -224,7 +224,7 @@ const questions = [
     question: 'What is 2 + 2?',
     id: 1,
     answers: [
-      { number: 1, img: "URL('/images/greenSquare.jpg')", correct: true },
+      { number: 1, img: "URL('images/greenSquare.jpg')", correct: true },
       { number: 2, text: '5', correct: false },
       { number: 3, text: '6', correct: false },
       { number: 4, text: '7', correct: false },
