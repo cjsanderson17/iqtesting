@@ -44,6 +44,7 @@ prevButton.addEventListener('click', () => {
 
 // loads the welcome page
 function loadWelcomePage() {
+  questionImage.src='images/welcomePageImage.jpg'
   continueButton.classList.remove('hide')
   startButton.classList.add('hide')
   prevButton.classList.add('hide')
@@ -51,6 +52,7 @@ function loadWelcomePage() {
 
 // loads the information page
 function loadInfoPage() {
+  questionImage.src='images/infoPageImage.jpg'
   continueButton.classList.add('hide')
   startButton.classList.remove('hide')
   prevButton.classList.remove('hide')
@@ -149,6 +151,8 @@ function setQuestion() {
 
 // applies questions to buttons
 function showQuestion(question) {
+  questionImage.src = question.img
+  questionImage.style.height = '50%'
   question.answers.forEach(answer => {
     const button = document.createElement('button')
     button.style.backgroundImage = answer.img
@@ -237,6 +241,7 @@ function removeSelected(element) {
 const questions = [
   {
     question: 'What is 2 + 2?',
+    img: 'images/questionImage.jpg',
     id: 1,
     answers: [
       { number: 1, img: "URL('images/greenCircle.png')", correct: true },
@@ -249,6 +254,7 @@ const questions = [
   },
   {
     question: 'Edit',
+    img: 'images/questionImage.jpg',
     id: 2,
     answers: [
       { number: 1, text: 'Yes', correct: true },
@@ -261,6 +267,7 @@ const questions = [
   },
   {
     question: 'Edit',
+    img: 'images/questionImage.jpg',
     id: 3,
     answers: [
       { number: 1, text: 'A', correct: false, },
@@ -273,6 +280,7 @@ const questions = [
   },
   {
     question: 'What is 4 * 2?',
+    img: 'images/questionImage.jpg',
     id: 4,
     answers: [
       { number: 1, text: '6', correct: false, },
