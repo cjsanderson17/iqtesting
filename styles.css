@@ -145,19 +145,19 @@
 
   @media only screen and (max-device-width: 480px) and (orientation: portrait) {
     .btn-grid button {
-      min-width: 50px;
-      max-width: 20vw;
-      min-height: 50px;
+      min-width: 20vw;
+      max-width: 30vw;
+      min-height: 20vw;
       aspect-ratio: 1 / 1;
       background-color: white;
     }
   }
 
-  @media only screen and (max-device-width: 640px) and (orientation: landscape) {
+  @media only screen and (max-device-height: 640px) and (orientation: landscape) {
     .btn-grid button {
-      min-width: 40px;
-      min-height: 40px;
-      max-height: 15vh;
+      min-width: 10vh;
+      min-height: 10vh;
+      max-height: 20vh;
       aspect-ratio: 1 / 1;
       background-color: white;
     }
