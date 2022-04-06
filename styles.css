@@ -238,7 +238,7 @@
   }
   
   .btn.selected {
-    border-color: green;
+    border-color: rgb(207, 83, 11);
   }
 
   .btn.unavailable {
