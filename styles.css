@@ -153,6 +153,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "cont cont cont " "prev finish next";
+
+    background-color: pink;
   }
 
   .continue-btn {
