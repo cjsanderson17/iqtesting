@@ -136,7 +136,7 @@ function resetState() {
 
 // updates progress bar
 function updateProgress() {
-  progressText.innerText = `V.5.Answered: ${selectedAnswerList.length / 4} / ${shuffledQuestions.length}`
+  progressText.innerText = `V.6.Answered: ${selectedAnswerList.length / 4} / ${shuffledQuestions.length}`
   let progressPercentage = ((selectedAnswerList.length / 4) / shuffledQuestions.length) * 100
   progressBarFull.style.width = `${progressPercentage}%`
 }
