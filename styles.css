@@ -135,7 +135,10 @@
 
   .btn-grid button {
     columns: 1; /* fixes buttons but dont know why*/
-    height: 100%;
+    width: auto;
+    max-width: 100%;
+    height: 99%;
+    max-height: 100%;
     aspect-ratio: 1;
     background-color: white;
   }
@@ -153,21 +156,23 @@
     align-self: end;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "prev finish next";
+    grid-template-areas: "cont cont cont " "prev finish next";
   }
 
   .continue-btn {
     font-size: 3rem;
     font-weight: bold;
     padding: 5px 5px;
-    align-self: start center;
+    justify-self: center;
+    grid-area: cont;
   }
 
   .start-btn {
     font-size: 3rem;
     font-weight: bold;
     padding: 5px 5px;
-    align-self: start center;
+    justify-self: center;
+    grid-area: cont;
   }
 
   .prev-btn {
