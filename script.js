@@ -166,11 +166,11 @@ function showQuestion(question) {
         button.dataset.correct = answer.correct
     }
     button.addEventListener('click', selectAnswer)
-    if (answerCounter == 3) {
+    /*if (answerCounter == 3) {
       console.log('broke')
       const lineBreak = document.createElement('break')
       answerButtonsElement.appendChild(lineBreak)
-    }
+    }*/
     answerButtonsElement.appendChild(button)
     answerCounter++
   })
