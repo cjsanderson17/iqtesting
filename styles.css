@@ -100,6 +100,7 @@
   .button-space {
     width: 100%;
     flex: 1;
+    padding-bottom: 10px;
 
     display: flex;
     flex-flow: column;
@@ -125,13 +126,14 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     background-color: red;
     justify-items: center;
   }
 
   .btn-grid button {
     height: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 1 / 1;
     background-color: white;
     columns: 1;
   }
