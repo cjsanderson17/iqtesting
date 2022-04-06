@@ -34,13 +34,16 @@
   
   .hud-elements {
     width: 100%;
+    height: 30%;
     max-height: 15%;
     display: flex;
     flex-flow: column;
-    align-items: center;
+    justify-content: center;
   }
 
   #timer {
+    width: 100%;
+    height: 30%;
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
@@ -48,6 +51,7 @@
   }
 
   #hud-text {
+    width: 100%;
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
@@ -56,13 +60,11 @@
 
   #progress-bar {
     width: 80%;
-    height: 1.5rem;
+    height: 25%;
     background-color: white;
     border: 0.2rem solid black;
     border-radius: 50px;
-    margin-top: 0.8rem;
-    margin-bottom: 1rem;
-    justify-self: center;
+    align-self: center;
     overflow: hidden;
   }
 
