@@ -16,7 +16,6 @@ let shuffledQuestions, currentQuestionIndex
 let counter = 1200
 let quizStarted = false
 
-
 // defines behaviour for buttons when clicked
 continueButton.addEventListener('click', loadInfoPage)
 
@@ -41,9 +40,9 @@ prevButton.addEventListener('click', () => {
   }
 })
 
-
 // loads the welcome page
 function loadWelcomePage() {
+  questionImage.src='images/welcomePageImage.jpg'
   continueButton.classList.remove('hide')
   startButton.classList.add('hide')
   prevButton.classList.add('hide')
@@ -51,51 +50,11 @@ function loadWelcomePage() {
 
 // loads the information page
 function loadInfoPage() {
+  questionImage.src='images/infoPageImage.jpg'
   continueButton.classList.add('hide')
   startButton.classList.remove('hide')
   prevButton.classList.remove('hide')
 }
-
-
-// shuffles the questions and unhides them
-function startQuiz() {
-  quizStarted = true
-  startButton.classList.add('hide')
-  finishButton.classList.remove('hide')
-  countdownTimer.classList.remove('hide')
-  progressText.classList.remove('hide')
-  questionContainerElement.classList.remove('hide')
-  progressBarElement.classList.remove('hide')
-  shuffledQuestions = questions.sort(() => Math.random() - .5)
-  currentQuestionIndex = 0
-  startTimer(counter)
-  setQuestion()
-}
-
-
-// cleans up quiz and shows result
-function endQuiz() {
-  console.log(window.value)
-  clearInterval(counter)
-  selectedAnswerList.push("time remaining: " + window.value)
-  score = calculateScore(selectedAnswerList, shuffledQuestions.length)
-  loadEndPage(score)
-}
-
-
-//
-function calculateScore(list, noOfQuestions) {
-  let score = 0
-  for (let i = 1; i <= noOfQuestions; i++) {
-    if (list[4*i - 2] == "true") {
-      score++
-    }
-  }
-  const iq = 140 * score / noOfQuestions
-  scores = [score, iq]
-  return scores
-}
-
 
 // loads the end page
 function loadEndPage(scores) {
@@ -112,6 +71,20 @@ function loadEndPage(scores) {
   questionImage.classList.add('hide')
 }
 
+// shuffles the questions and unhides them
+function startQuiz() {
+  quizStarted = true
+  startButton.classList.add('hide')
+  finishButton.classList.remove('hide')
+  countdownTimer.classList.remove('hide')
+  progressText.classList.remove('hide')
+  questionContainerElement.classList.remove('hide')
+  progressBarElement.classList.remove('hide')
+  shuffledQuestions = questions.sort(() => Math.random() - .5)
+  currentQuestionIndex = 0
+  startTimer(counter)
+  setQuestion()
+}
 
 // starts timer
 function startTimer(time) {
@@ -138,41 +111,12 @@ function startTimer(time) {
   }
 }
 
-
 //
 function setQuestion() {
   resetState()
   updateProgress()
   showQuestion(shuffledQuestions[currentQuestionIndex])
 }
-
-
-// applies questions to buttons
-function showQuestion(question) {
-  question.answers.forEach(answer => {
-    const button = document.createElement('button')
-    button.style.backgroundImage = answer.img
-    button.dataset.number = answer.number
-    button.dataset.correct = answer.correct
-    button.dataset.id = question.id
-    button.classList.add('answer-btns', 'btn')
-
-    const questionIndex = selectedAnswerList.indexOf('order: ' + (currentQuestionIndex + 1))
-    if (questionIndex != -1) {
-      if (selectedAnswerList[questionIndex - 1] == button.dataset.number) {
-        button.classList.add('selected')
-      }
-    } 
-    
-    // adds correct tag to button iff answer is correct - useful for later
-    if (answer.correct) {
-        button.dataset.correct = answer.correct
-    }
-    button.addEventListener('click', selectAnswer)
-    answerButtonsElement.appendChild(button)
-  })
-}
-
 
 // controls hide for next & prev, deletes previous answer buttons
 function resetState() {
@@ -190,6 +134,47 @@ function resetState() {
   }
 }
 
+// updates progress bar
+function updateProgress() {
+  progressText.innerText = `V.7.Answered: ${selectedAnswerList.length / 4} / ${shuffledQuestions.length}`
+  let progressPercentage = ((selectedAnswerList.length / 4) / shuffledQuestions.length) * 100
+  progressBarFull.style.width = `${progressPercentage}%`
+}
+
+// applies questions to buttons
+function showQuestion(question) {
+  questionImage.src = question.img
+  questionImage.style.height = '50%'
+  let answerCounter = 0
+  question.answers.forEach(answer => {
+    const button = document.createElement('button')
+    button.style.backgroundImage = answer.img
+    button.dataset.number = answer.number
+    button.dataset.correct = answer.correct
+    button.dataset.id = question.id
+    button.classList.add('answer-btns', 'btn')
+
+    const questionIndex = selectedAnswerList.indexOf('order: ' + (currentQuestionIndex + 1))
+    if (questionIndex != -1) {
+      if (selectedAnswerList[questionIndex - 2] == button.dataset.number) {
+        button.classList.add('selected')
+      }
+    } 
+    
+    // adds correct tag to button iff answer is correct - useful for later
+    if (answer.correct) {
+        button.dataset.correct = answer.correct
+    }
+    button.addEventListener('click', selectAnswer)
+    /*if (answerCounter == 3) {
+      console.log('broke')
+      const lineBreak = document.createElement('break')
+      answerButtonsElement.appendChild(lineBreak)
+    }*/
+    answerButtonsElement.appendChild(button)
+    answerCounter++
+  })
+}
 
 // visual selection: limited to one answer, selection status saved locally
 function selectAnswer(e) {
@@ -211,14 +196,10 @@ function selectAnswer(e) {
   // send to database after 'finish' clicked
 }
 
-
-// updates progress bar
-function updateProgress() {
-  progressText.innerText = `Answered: ${selectedAnswerList.length / 4} / ${shuffledQuestions.length}`
-  let progressPercentage = ((selectedAnswerList.length / 4) / shuffledQuestions.length) * 100
-  progressBarFull.style.width = `${progressPercentage}%`
+// removes selection from button
+function removeSelected(element) {
+  element.classList.remove('selected')
 }
-
 
 // updates if the user can finish
 function updateFinish() {
@@ -227,19 +208,35 @@ function updateFinish() {
   }
 }
 
-
-// removes selection from button
-function removeSelected(element) {
-  element.classList.remove('selected')
+// cleans up quiz and shows result
+function endQuiz() {
+  console.log(window.value)
+  clearInterval(counter)
+  selectedAnswerList.push("time remaining: " + window.value)
+  score = calculateScore(selectedAnswerList, shuffledQuestions.length)
+  loadEndPage(score)
 }
 
+//
+function calculateScore(list, noOfQuestions) {
+  let score = 0
+  for (let i = 1; i <= noOfQuestions; i++) {
+    if (list[4*i - 2] == "true") {
+      score++
+    }
+  }
+  const iq = 140 * score / noOfQuestions
+  scores = [score, iq]
+  return scores
+}
 
 const questions = [
   {
     question: 'What is 2 + 2?',
+    img: 'images/questionImage.jpg',
     id: 1,
     answers: [
-      { number: 1, img: "URL('images/greenSquare.jpg')", correct: true },
+      { number: 1, img: "URL('images/jollyRoger.jpg')", correct: true },
       { number: 2, text: '5', correct: false },
       { number: 3, text: '6', correct: false },
       { number: 4, text: '7', correct: false },
@@ -249,6 +246,7 @@ const questions = [
   },
   {
     question: 'Edit',
+    img: 'images/questionImage.jpg',
     id: 2,
     answers: [
       { number: 1, text: 'Yes', correct: true },
@@ -261,6 +259,7 @@ const questions = [
   },
   {
     question: 'Edit',
+    img: 'images/questionImage.jpg',
     id: 3,
     answers: [
       { number: 1, text: 'A', correct: false, },
@@ -273,6 +272,7 @@ const questions = [
   },
   {
     question: 'What is 4 * 2?',
+    img: 'images/questionImage.jpg',
     id: 4,
     answers: [
       { number: 1, text: '6', correct: false, },
