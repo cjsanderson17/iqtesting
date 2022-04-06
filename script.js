@@ -136,7 +136,7 @@ function resetState() {
 
 // updates progress bar
 function updateProgress() {
-  progressText.innerText = `V.1.Answered: ${selectedAnswerList.length / 4} / ${shuffledQuestions.length}`
+  progressText.innerText = `V.2.Answered: ${selectedAnswerList.length / 4} / ${shuffledQuestions.length}`
   let progressPercentage = ((selectedAnswerList.length / 4) / shuffledQuestions.length) * 100
   progressBarFull.style.width = `${progressPercentage}%`
 }
@@ -167,10 +167,12 @@ function showQuestion(question) {
     }
     button.addEventListener('click', selectAnswer)
     if (answerCounter == 3) {
+      console.log('broke')
       const lineBreak = document.createElement('break')
       answerButtonsElement.appendChild(lineBreak)
     }
     answerButtonsElement.appendChild(button)
+    answerCounter++
   })
 }
 
