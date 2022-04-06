@@ -137,6 +137,12 @@
     columns: 1;
   }
 
+  .btn-grid button:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+
   .answer-btns {
     background-image: url('images/blackSquare.jpg');
     background-size: 100%;
