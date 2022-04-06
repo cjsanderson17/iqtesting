@@ -119,6 +119,7 @@
   /* Answer Buttons */
 
   .btn-grid {
+    max-width: 90%;
     flex: 1;
     aspect-ratio: 3 /2;
     padding: 0.8rem;
