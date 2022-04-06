@@ -125,7 +125,6 @@
     flex: 1;
     padding: 0.8rem;
     gap: 1.5rem;
-    column-gap: 2rem;
 
     display: grid;
     grid-template-columns: auto auto auto;
