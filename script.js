@@ -136,7 +136,7 @@ function resetState() {
 
 // updates progress bar
 function updateProgress() {
-  progressText.innerText = `V.5.Answered: ${selectedAnswerList.length / 4} / ${shuffledQuestions.length}`
+  progressText.innerText = `V.6.Answered: ${selectedAnswerList.length / 4} / ${shuffledQuestions.length}`
   let progressPercentage = ((selectedAnswerList.length / 4) / shuffledQuestions.length) * 100
   progressBarFull.style.width = `${progressPercentage}%`
 }
@@ -236,7 +236,7 @@ const questions = [
     img: 'images/questionImage.jpg',
     id: 1,
     answers: [
-      { number: 1, img: "URL('images/greenCircle.png')", correct: true },
+      { number: 1, img: "URL('images/jollyRoger.jpg')", correct: true },
       { number: 2, text: '5', correct: false },
       { number: 3, text: '6', correct: false },
       { number: 4, text: '7', correct: false },
