@@ -143,7 +143,7 @@
     background-color: white;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 480px) and (orientation: portrait) {
     .btn-grid button {
       max-width: 20vw;
       aspect-ratio: 1 / 1;
@@ -151,9 +151,9 @@
     }
   }
 
-  @media only screen and (max-height: 500px) {
+  @media only screen and (max-width: 640px) and (orientation: landscape) {
     .btn-grid button {
-      max-height: 10vh;
+      max-height: 15vh;
       aspect-ratio: 1 / 1;
       background-color: white;
     }
