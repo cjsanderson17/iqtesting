@@ -100,7 +100,6 @@
   .button-space {
     width: 100%;
     flex: 1;
-    padding: 10px 2rem;
 
     display: flex;
     flex-flow: column;
@@ -158,7 +157,7 @@
   }
 
   .continue-btn {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     padding: 5px 5px;
     justify-self: center;
@@ -166,7 +165,7 @@
   }
 
   .start-btn {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     padding: 5px 5px;
     justify-self: center;
