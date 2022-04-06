@@ -104,8 +104,6 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-
-    background-color: yellow;
   }
 
   .btn {
@@ -133,7 +131,8 @@
   }
 
   .btn-grid button {
-    height: 100%;
+    width: 100%;
+    max-height: 100%;
     aspect-ratio: 1;
     background-color: white;
     columns: 1;
@@ -153,8 +152,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: "cont cont cont " "prev finish next";
-
-    background-color: pink;
   }
 
   .continue-btn {
