@@ -145,6 +145,7 @@ function updateProgress() {
 function showQuestion(question) {
   questionImage.src = question.img
   questionImage.style.height = '50%'
+  let answerCounter = 0
   question.answers.forEach(answer => {
     const button = document.createElement('button')
     button.style.backgroundImage = answer.img
@@ -165,6 +166,10 @@ function showQuestion(question) {
         button.dataset.correct = answer.correct
     }
     button.addEventListener('click', selectAnswer)
+    if (answerCounter == 3) {
+      const lineBreak = document.createElement('break')
+      answerButtonsElement.appendChild(lineBreak)
+    }
     answerButtonsElement.appendChild(button)
   })
 }
