@@ -119,9 +119,8 @@
   /* Answer Buttons */
 
   .btn-grid {
-    width: 60%;
-    height: 100%;
     flex: 1;
+    aspect-ratio: 3 /2;
     padding: 0.8rem;
     margin: 0.8rem;
     gap: 1.5rem;
@@ -129,8 +128,9 @@
 
     display: grid;
     grid-template-columns: repeat(3, auto);
-    flex-wrap: wrap;
     justify-content: center;
+
+    background-color: red;
   }
 
   .btn-grid button {
