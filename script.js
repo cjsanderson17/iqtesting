@@ -232,16 +232,12 @@ function calculateScore(list, noOfQuestions) {
 
 const questions = [
   {
-    question: 'What is 2 + 2?',
-    img: 'images/questionImage.jpg',
     id: 1,
+    img: 'images/q1.jpg',
     answers: [
-      { number: 1, img: "URL('images/jollyRoger.jpg')", correct: true },
-      { number: 2, text: '5', correct: false },
-      { number: 3, text: '6', correct: false },
-      { number: 4, text: '7', correct: false },
-      { number: 5, text: '8', correct: false },
-      { number: 6, text: '9', correct: false }
+      { number: 1, img: "URL('images/q1a1.jpg')", correct: true },
+      { number: 2, img: "URL('images/q1a2.jpg')", correct: false },
+      { number: 3, img: "URL('images/q1a3.jpg')", correct: false },
     ]
   },
   {
