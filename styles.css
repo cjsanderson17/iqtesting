@@ -124,23 +124,22 @@
     padding: 0.8rem;
     gap: 1.5rem;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     background-color: red;
     justify-items: center;
   }
 
   .btn-grid button {
-    height: 100%;
+    height: 45%;
+    aspect-ratio: 1 / 1;
     background-color: white;
     columns: 1;
   }
 
-  .btn-grid button:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
+  .break {
+    flex-basis: 100%;
+    height: 0;
   }
 
   .answer-btns {
