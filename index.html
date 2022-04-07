@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="styles.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script defer src="script.js"></script>
   <title>Quiz App</title>
 </head>
 <body>
   <div id="hud">
     <div class="hud-elements">
-      <div id="version">Version: 1</div>
+      <div id="version">Version: 2</div>
       <div id="timer" class="hide">20:00</div>
       <div id="hud-text" class="hide"></div>
       <div id="progress-bar" class="hide">
@@ -21,6 +22,7 @@
     <div class="question-window">
       <img src="images/welcomePageImage.jpg" alt="A black square" id="main-image">
       <div id="score-text" class="hide">Score</div>
+      <div id="save-status-text" class="hide">...</div>
       <div class="button-space">
         <div id="answer-btns" class="btn-grid hide">
           <button class="btn">Answer 1</button>
