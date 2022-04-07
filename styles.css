@@ -178,7 +178,9 @@
 
   .answer-btns {
     background-image: url('images/blackSquare.jpg');
-    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
     border: 5px solid rgb(0, 102, 153);
   }
   
