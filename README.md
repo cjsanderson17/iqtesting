@@ -15,7 +15,6 @@ Clean up to do:
   - Visual Design
     - Colour scheme
     - Button visuals
-    - Progress bar visuals
   - Code
     - Finalise form in which data is saved - currentlyincludes text for me to read
     - Clean up functions
@@ -23,7 +22,7 @@ Clean up to do:
 Other things:
   - No internet connection when data sent?
   - Check Display in all different window sizes
-  - Randomise answer placement
+  - randomly index correct answers outside of code
   - Feedback comment option
   - Arrow keys for next and prev
 
