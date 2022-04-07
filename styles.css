@@ -243,7 +243,7 @@
 
   /* Button Attributes */
 
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     .btn:hover {
         border-color: black;
     }

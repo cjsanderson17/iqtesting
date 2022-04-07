@@ -189,7 +189,7 @@ function selectAnswer(e) {
   }
   updateProgress()
   updateFinish()
-  if (firstTimeSelect == true) {
+  if (firstTimeSelect == true && (currentQuestionIndex + 1) != questions.length) {
     firstTimeSelect = false
     currentQuestionIndex++
     setQuestion()
