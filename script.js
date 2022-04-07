@@ -14,7 +14,7 @@ const questionImage = document.getElementById('main-image')
 const answerButtonsElement = document.getElementById('answer-btns')
 const scoreText = document.getElementById('score-text')
 const saveStatusText = document.getElementById('save-status-text')
-let currentQuestionIndex
+let currentQuestionIndex, firstTimeSelect
 let counter = 1200
 let quizStarted = false
 
@@ -172,6 +172,7 @@ function showQuestion(question) {
 
 // visual selection: limited to one answer, selection status saved locally
 function selectAnswer(e) {
+  
   const selectedButton = e.target
   Array.from(answerButtonsElement.children).forEach(button => {
     removeSelected(button)
@@ -181,13 +182,18 @@ function selectAnswer(e) {
   const questionIndex = selectedAnswerList.indexOf('id: ' + (selectedButton.dataset.id))
   if (questionIndex != -1) {
     selectedAnswerList[questionIndex + 1] = (selectedButton.dataset.number)
+    firstTimeSelect = false
   } else {
     selectedAnswerList.push('id: ' + (selectedButton.dataset.id), selectedButton.dataset.number, selectedButton.dataset.correct)
+    firstTimeSelect = true
   }
   updateProgress()
   updateFinish()
-  
-  // send to database after 'finish' clicked
+  if (firstTimeSelect == true) {
+    firstTimeSelect = false
+    currentQuestionIndex++
+    setQuestion()
+  }
 }
 
 // removes selection from button
