@@ -13,6 +13,7 @@ const questionContainerElement = document.getElementById('answer-btns')
 const questionImage = document.getElementById('main-image')
 const answerButtonsElement = document.getElementById('answer-btns')
 const scoreText = document.getElementById('score-text')
+const saveStatusText = document.getElementById('save-status-text')
 let currentQuestionIndex
 let counter = 1200
 let quizStarted = false
@@ -68,6 +69,7 @@ function loadEndPage(scores) {
   progressBarFull.classList.add('hide')
   answerButtonsElement.classList.add('hide')
   scoreText.classList.remove('hide')
+  saveStatusText.classList.remove('hide')
   scoreText.innerText = "Your score was: " + scores[0] + " / " + questions.length + "\nEstimated IQ: " + scores[1]
   questionImage.classList.add('hide')
 }
@@ -202,10 +204,10 @@ function updateFinish() {
 
 // cleans up quiz and shows result
 function endQuiz() {
-  console.log(window.value)
+  const remainingTime = window.value
   clearInterval(counter)
-  selectedAnswerList.push("time remaining: " + window.value)
   score = calculateScore(selectedAnswerList, questions.length)
+  saveUserData(remainingTime, selectedAnswerList, score)
   loadEndPage(score)
 }
 
@@ -220,6 +222,24 @@ function calculateScore(list, noOfQuestions) {
   const iq = 140 * score / noOfQuestions
   scores = [score, iq]
   return scores
+}
+
+//
+function saveUserData(userTime, answerList, scores) {
+  let answersString = answerList.toString()
+  $.post('saveuserdata.php',
+  {
+    score: scores[0],
+    iq: scores[1],
+    answers: answersString,
+    timeremaining: userTime,
+  },
+  function(data, status) {
+    saveStatusText.innerHTML = data;
+    $('#saveStatusText').fadeIn(100);
+    setTimeout(function() {
+      $('saveStatusText').fadeOut(100); }, 3000);
+  })
 }
 
 const questions = [
