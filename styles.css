@@ -41,6 +41,11 @@
     justify-content: center;
   }
 
+  #version {
+    font-weight: bold;
+    color: white;
+  }
+
   #timer {
     width: 100%;
     height: 30%;
