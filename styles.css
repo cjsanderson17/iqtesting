@@ -243,9 +243,11 @@
 
   /* Button Attributes */
 
-  .btn:hover {
-    border-color: black;
-  }
+  @media (hover: hover) {
+    .btn:hover {
+        border-color: black;
+    }
+}
   
   .btn.selected {
     border-color: rgb(207, 83, 11);
@@ -253,4 +255,5 @@
 
   .btn.unavailable {
     opacity: 50%;
+    cursor: not-allowed;
   }

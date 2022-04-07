@@ -310,6 +310,18 @@ const questions = [
       { number: 5, img: "URL('images/6e.jpg')", correct: false },
       { number: 6, img: "URL('images/6f.jpg')", correct: true },
     ]
+  },
+  {
+    id: 7,
+    img: 'images/q7.jpg',
+    answers: [
+      { number: 1, img: "URL('images/7a.jpg')", correct: false },
+      { number: 2, img: "URL('images/7b.jpg')", correct: false },
+      { number: 3, img: "URL('images/7c.jpg')", correct: false },
+      { number: 4, img: "URL('images/7d.jpg')", correct: true },
+      { number: 5, img: "URL('images/7e.jpg')", correct: false },
+      { number: 6, img: "URL('images/7f.jpg')", correct: false },
+    ]
   }
 ]
 
