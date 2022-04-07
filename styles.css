@@ -1,6 +1,6 @@
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
   }
   
   /* comment */
@@ -52,6 +52,7 @@
 
   #hud-text {
     width: 100%;
+    height: 30%;
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
@@ -242,6 +243,5 @@
   }
 
   .btn.unavailable {
-    color: rgb(4, 45, 99);
-    background-color: rgb(102, 136, 153);
+    opacity: 50%;
   }
