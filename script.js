@@ -247,48 +247,62 @@ const questions = [
     id: 1,
     img: 'images/q1.jpg',
     answers: [
-      { number: 1, img: "URL('images/q1a1.jpg')", correct: true },
-      { number: 2, img: "URL('images/q1a2.jpg')", correct: false },
-      { number: 3, img: "URL('images/q1a3.jpg')", correct: false },
+      { number: 1, img: "URL('images/1a.jpg')", correct: false },
+      { number: 2, img: "URL('images/1b.jpg')", correct: false },
+      { number: 3, img: "URL('images/1c.jpg')", correct: true },
     ]
   },
   {
-    question: 'Edit',
-    img: 'images/questionImage.jpg',
     id: 2,
+    img: 'images/q2.jpg',
     answers: [
-      { number: 1, text: 'Yes', correct: true },
-      { number: 2, text: 'Yeah', correct: true, },
-      { number: 3, text: 'Yep', correct: true, },
-      { number: 4, text: 'Ye', correct: true, },
-      { number: 5, text: 'Ye', correct: true, },
-      { number: 6, text: 'Ye', correct: true, }
+      { number: 1, img: "URL('images/2a.jpg')", correct: false },
+      { number: 2, img: "URL('images/2b.jpg')", correct: false },
+      { number: 3, img: "URL('images/2c.jpg')", correct: true },
+      { number: 4, img: "URL('images/2d.jpg')", correct: false },
     ]
   },
   {
-    question: 'Edit',
-    img: 'images/questionImage.jpg',
     id: 3,
+    img: 'images/q3.jpg',
     answers: [
-      { number: 1, text: 'A', correct: false, },
-      { number: 2, text: 'B', correct: true, },
-      { number: 3, text: 'C', correct: false, },
-      { number: 4, text: 'D', correct: false, },
-      { number: 5, text: 'C', correct: false, },
-      { number: 6, text: 'C', correct: false, }
+      { number: 1, img: "URL('images/3a.jpg')", correct: true },
+      { number: 2, img: "URL('images/3b.jpg')", correct: false },
+      { number: 3, img: "URL('images/3c.jpg')", correct: false },
+      { number: 4, img: "URL('images/3d.jpg')", correct: false },
     ]
   },
   {
-    question: 'What is 4 * 2?',
-    img: 'images/questionImage.jpg',
     id: 4,
+    img: 'images/q4.jpg',
     answers: [
-      { number: 1, text: '6', correct: false, },
-      { number: 2, text: '6', correct: false, },
-      { number: 3, text: '6', correct: false, },
-      { number: 4, text: '8', correct: true, },
-      { number: 5, text: '6', correct: false, },
-      { number: 6, text: '6', correct: false, }
+      { number: 1, img: "URL('images/4a.jpg')", correct: false },
+      { number: 2, img: "URL('images/4b.jpg')", correct: true },
+      { number: 3, img: "URL('images/4c.jpg')", correct: false },
+      { number: 4, img: "URL('images/4c.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 5,
+    img: 'images/q5.jpg',
+    answers: [
+      { number: 1, img: "URL('images/5a.jpg')", correct: false },
+      { number: 2, img: "URL('images/5b.jpg')", correct: false },
+      { number: 3, img: "URL('images/5c.jpg')", correct: true },
+      { number: 4, img: "URL('images/5d.jpg')", correct: false },
+      { number: 5, img: "URL('images/5e.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 6,
+    img: 'images/q6.jpg',
+    answers: [
+      { number: 1, img: "URL('images/6a.jpg')", correct: false },
+      { number: 2, img: "URL('images/6b.jpg')", correct: false },
+      { number: 3, img: "URL('images/6c.jpg')", correct: false },
+      { number: 4, img: "URL('images/6d.jpg')", correct: false },
+      { number: 5, img: "URL('images/6e.jpg')", correct: false },
+      { number: 6, img: "URL('images/6f.jpg')", correct: true },
     ]
   }
 ]
