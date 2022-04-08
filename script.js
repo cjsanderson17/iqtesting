@@ -12,6 +12,7 @@ const progressBarFull = document.getElementById('progress-bar-full')
 const questionContainerElement = document.getElementById('answer-btns')
 const questionImage = document.getElementById('main-image')
 const answerButtonsElement = document.getElementById('answer-btns')
+const questionNumberText = document.getElementById('question-number')
 const scoreText = document.getElementById('score-text')
 const saveStatusText = document.getElementById('save-status-text')
 let currentQuestionIndex, firstTimeSelect
@@ -60,6 +61,7 @@ function loadInfoPage() {
 
 // loads the end page
 function loadEndPage(scores) {
+  questionNumberText.classList.add('hide')
   nextButton.classList.add('hide')
   prevButton.classList.add('hide')
   finishButton.classList.add('hide')
@@ -77,6 +79,7 @@ function loadEndPage(scores) {
 // shuffles the questions and unhides them
 function startQuiz() {
   quizStarted = true
+  questionNumberText.classList.remove('hide')
   versionNo.classList.add('hide')
   startButton.classList.add('hide')
   finishButton.classList.remove('hide')
@@ -146,6 +149,7 @@ function updateProgress() {
 
 // applies questions to buttons
 function showQuestion(question) {
+  questionNumberText.innerHTML = "Question " + (currentQuestionIndex + 1)
   questionImage.src = question.img
   questionImage.style.height = '50%'
   let answerCounter = 0
@@ -189,7 +193,7 @@ function selectAnswer(e) {
   }
   updateProgress()
   updateFinish()
-  if (firstTimeSelect == true && (currentQuestionIndex + 1) != questions.length) {
+  if (firstTimeSelect == true && (currentQuestionIndex + 1) != questions.length && selectedAnswerList.indexOf('id: ' + (currentQuestionIndex + 2)) == -1) {
     firstTimeSelect = false
     currentQuestionIndex++
     setQuestion()

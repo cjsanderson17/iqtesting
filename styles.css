@@ -98,6 +98,12 @@
     align-items: center;
   }
   
+  /* Question Number*/
+
+  .text {
+    font-size: 2vh;
+    font-weight: bold;
+  }
   /* Image */
 
   img {
