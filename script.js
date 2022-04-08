@@ -152,7 +152,6 @@ function showQuestion(question) {
   questionNumberText.innerHTML = "Question " + (currentQuestionIndex + 1)
   questionImage.src = question.img
   questionImage.style.height = '50%'
-  let answerCounter = 0
   question.answers.forEach(answer => {
     const button = document.createElement('button')
     button.style.backgroundImage = answer.img
@@ -170,7 +169,6 @@ function showQuestion(question) {
     
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
-    answerCounter++
   })
 }
 
