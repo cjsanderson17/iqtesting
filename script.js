@@ -415,6 +415,27 @@ const questions = [
     answers: [
       { number: 1, img: "URL('images/q20an.jpg')", correct: true },
     ]
+  },
+  {
+    id: 21,
+    img: 'images/q21.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q21an.jpg')", correct: true },
+    ]
+  },
+  {
+    id: 22,
+    img: 'images/q22.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q22an.jpg')", correct: true },
+    ]
+  }, 
+  {
+    id: 23,
+    img: 'images/q23.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q23an.jpg')", correct: true },
+    ]
   }, 
 ]
 
