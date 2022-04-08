@@ -329,112 +329,192 @@ const questions = [
     id: 8,
     img: 'images/q8.jpg',
     answers: [
-      { number: 1, img: "URL('images/q8an.jpg')", correct: true },
+      { number: 1, img: "URL('images/8a.jpg')", correct: true },
+      { number: 2, img: "URL('images/8b.jpg')", correct: false },
+      { number: 3, img: "URL('images/8c.jpg')", correct: false },
+      { number: 4, img: "URL('images/8d.jpg')", correct: false },
+      { number: 5, img: "URL('images/8e.jpg')", correct: true },
+      { number: 6, img: "URL('images/8f.jpg')", correct: false },
     ]
   },
   {
     id: 9,
     img: 'images/q9.jpg',
     answers: [
-      { number: 1, img: "URL('images/q9an.jpg')", correct: true },
+      { number: 1, img: "URL('images/9a.jpg')", correct: false },
+      { number: 2, img: "URL('images/9b.jpg')", correct: false },
+      { number: 3, img: "URL('images/9c.jpg')", correct: false },
+      { number: 4, img: "URL('images/9d.jpg')", correct: false },
+      { number: 5, img: "URL('images/9e.jpg')", correct: true },
+      { number: 6, img: "URL('images/9f.jpg')", correct: false },
     ]
   }, 
   {
     id: 10,
     img: 'images/q10.jpg',
     answers: [
-      { number: 1, img: "URL('images/q10an.jpg')", correct: true },
+      { number: 1, img: "URL('images/10a.jpg')", correct: false },
+      { number: 2, img: "URL('images/10b.jpg')", correct: false },
+      { number: 3, img: "URL('images/10c.jpg')", correct: false },
+      { number: 4, img: "URL('images/10d.jpg')", correct: false },
+      { number: 5, img: "URL('images/10e.jpg')", correct: true },
+      { number: 6, img: "URL('images/10f.jpg')", correct: false },
     ]
   }, 
   {
     id: 11,
     img: 'images/q11.jpg',
     answers: [
-      { number: 1, img: "URL('images/q11an.jpg')", correct: true },
+      { number: 1, img: "URL('images/11a.jpg')", correct: false },
+      { number: 2, img: "URL('images/11b.jpg')", correct: false },
+      { number: 3, img: "URL('images/11c.jpg')", correct: false },
+      { number: 4, img: "URL('images/11d.jpg')", correct: true },
+      { number: 5, img: "URL('images/11e.jpg')", correct: false },
+      { number: 6, img: "URL('images/11f.jpg')", correct: false },
     ]
   },
   {
     id: 12,
     img: 'images/q12.jpg',
     answers: [
-      { number: 1, img: "URL('images/q12an.jpg')", correct: true },
+      { number: 1, img: "URL('images/12a.jpg')", correct: false },
+      { number: 2, img: "URL('images/12b.jpg')", correct: false },
+      { number: 3, img: "URL('images/12c.jpg')", correct: false },
+      { number: 4, img: "URL('images/12d.jpg')", correct: false },
+      { number: 5, img: "URL('images/12e.jpg')", correct: false },
+      { number: 6, img: "URL('images/12f.jpg')", correct: true },
     ]
   }, 
   {
     id: 13,
     img: 'images/q13.jpg',
     answers: [
-      { number: 1, img: "URL('images/q13an.jpg')", correct: true },
+      { number: 1, img: "URL('images/13a.jpg')", correct: true },
+      { number: 2, img: "URL('images/13b.jpg')", correct: false },
+      { number: 3, img: "URL('images/13c.jpg')", correct: false },
+      { number: 4, img: "URL('images/13d.jpg')", correct: false },
+      { number: 5, img: "URL('images/13e.jpg')", correct: false },
+      { number: 6, img: "URL('images/13f.jpg')", correct: false },
     ]
   }, 
   {
     id: 14,
     img: 'images/q14.jpg',
     answers: [
-      { number: 1, img: "URL('images/q14an.jpg')", correct: true },
+      { number: 1, img: "URL('images/14a.jpg')", correct: false },
+      { number: 2, img: "URL('images/14b.jpg')", correct: false },
+      { number: 3, img: "URL('images/14c.jpg')", correct: true },
+      { number: 4, img: "URL('images/14d.jpg')", correct: false },
+      { number: 5, img: "URL('images/14e.jpg')", correct: false },
+      { number: 6, img: "URL('images/14f.jpg')", correct: false },
     ]
   }, 
   {
     id: 15,
     img: 'images/q15.jpg',
     answers: [
-      { number: 1, img: "URL('images/q15an.jpg')", correct: true },
+      { number: 1, img: "URL('images/15a.jpg')", correct: false },
+      { number: 2, img: "URL('images/15b.jpg')", correct: false },
+      { number: 3, img: "URL('images/15c.jpg')", correct: false },
+      { number: 4, img: "URL('images/15d.jpg')", correct: true },
+      { number: 5, img: "URL('images/15e.jpg')", correct: false },
+      { number: 6, img: "URL('images/15f.jpg')", correct: false },
     ]
   }, 
   {
     id: 16,
     img: 'images/q16.jpg',
     answers: [
-      { number: 1, img: "URL('images/q16an.jpg')", correct: true },
+      { number: 1, img: "URL('images/16a.jpg')", correct: false },
+      { number: 2, img: "URL('images/16b.jpg')", correct: true },
+      { number: 3, img: "URL('images/16c.jpg')", correct: false },
+      { number: 4, img: "URL('images/16d.jpg')", correct: false },
+      { number: 5, img: "URL('images/16e.jpg')", correct: false },
+      { number: 6, img: "URL('images/16f.jpg')", correct: false },
     ]
   }, 
   {
     id: 17,
     img: 'images/q17.jpg',
     answers: [
-      { number: 1, img: "URL('images/q17an.jpg')", correct: true },
+      { number: 1, img: "URL('images/17a.jpg')", correct: false },
+      { number: 2, img: "URL('images/17b.jpg')", correct: true },
+      { number: 3, img: "URL('images/17c.jpg')", correct: false },
+      { number: 4, img: "URL('images/17d.jpg')", correct: false },
+      { number: 5, img: "URL('images/17e.jpg')", correct: false },
+      { number: 6, img: "URL('images/17f.jpg')", correct: false },
     ]
   }, 
   {
     id: 18,
     img: 'images/q18.jpg',
     answers: [
-      { number: 1, img: "URL('images/q18an.jpg')", correct: true },
+      { number: 1, img: "URL('images/18a.jpg')", correct: false },
+      { number: 2, img: "URL('images/18b.jpg')", correct: false },
+      { number: 3, img: "URL('images/18c.jpg')", correct: false },
+      { number: 4, img: "URL('images/18d.jpg')", correct: false },
+      { number: 5, img: "URL('images/18e.jpg')", correct: false },
+      { number: 6, img: "URL('images/18f.jpg')", correct: true },
     ]
   }, 
   {
     id: 19,
     img: 'images/q19.jpg',
     answers: [
-      { number: 1, img: "URL('images/q19an.jpg')", correct: true },
+      { number: 1, img: "URL('images/19a.jpg')", correct: true },
+      { number: 2, img: "URL('images/19.jpg')", correct: false },
+      { number: 3, img: "URL('images/19c.jpg')", correct: false },
+      { number: 4, img: "URL('images/19d.jpg')", correct: false },
+      { number: 5, img: "URL('images/19e.jpg')", correct: false },
+      { number: 6, img: "URL('images/19f.jpg')", correct: false },
     ]
   }, 
   {
     id: 20,
     img: 'images/q20.jpg',
     answers: [
-      { number: 1, img: "URL('images/q20an.jpg')", correct: true },
+      { number: 1, img: "URL('images/20a.jpg')", correct: false },
+      { number: 2, img: "URL('images/20b.jpg')", correct: false },
+      { number: 3, img: "URL('images/20c.jpg')", correct: false },
+      { number: 4, img: "URL('images/20d.jpg')", correct: true },
+      { number: 5, img: "URL('images/20e.jpg')", correct: false },
+      { number: 6, img: "URL('images/20f.jpg')", correct: false },
     ]
   },
   {
     id: 21,
     img: 'images/q21.jpg',
     answers: [
-      { number: 1, img: "URL('images/q21an.jpg')", correct: true },
+      { number: 1, img: "URL('images/21a.jpg')", correct: false },
+      { number: 2, img: "URL('images/21b.jpg')", correct: false },
+      { number: 3, img: "URL('images/21c.jpg')", correct: false },
+      { number: 4, img: "URL('images/21d.jpg')", correct: false },
+      { number: 5, img: "URL('images/21e.jpg')", correct: false },
+      { number: 6, img: "URL('images/21f.jpg')", correct: true },
     ]
   },
   {
     id: 22,
     img: 'images/q22.jpg',
     answers: [
-      { number: 1, img: "URL('images/q22an.jpg')", correct: true },
+      { number: 1, img: "URL('images/22a.jpg')", correct: false },
+      { number: 2, img: "URL('images/22.jpg')", correct: false },
+      { number: 3, img: "URL('images/22c.jpg')", correct: false },
+      { number: 4, img: "URL('images/22d.jpg')", correct: true },
+      { number: 5, img: "URL('images/22e.jpg')", correct: false },
+      { number: 6, img: "URL('images/22f.jpg')", correct: false },
     ]
   }, 
   {
     id: 23,
     img: 'images/q23.jpg',
     answers: [
-      { number: 1, img: "URL('images/q23an.jpg')", correct: true },
+      { number: 1, img: "URL('images/23a.jpg')", correct: false },
+      { number: 2, img: "URL('images/23b.jpg')", correct: false },
+      { number: 3, img: "URL('images/23c.jpg')", correct: false },
+      { number: 4, img: "URL('images/23d.jpg')", correct: true },
+      { number: 5, img: "URL('images/23e.jpg')", correct: false },
+      { number: 6, img: "URL('images/23f.jpg')", correct: false },
     ]
   }, 
 ]
