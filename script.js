@@ -354,6 +354,69 @@ const questions = [
     answers: [
       { number: 1, img: "URL('images/q11an.jpg')", correct: true },
     ]
+  },
+  {
+    id: 12,
+    img: 'images/q12.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q12an.jpg')", correct: true },
+    ]
+  }, 
+  {
+    id: 13,
+    img: 'images/q13.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q13an.jpg')", correct: true },
+    ]
+  }, 
+  {
+    id: 14,
+    img: 'images/q14.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q14an.jpg')", correct: true },
+    ]
+  }, 
+  {
+    id: 15,
+    img: 'images/q15.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q15an.jpg')", correct: true },
+    ]
+  }, 
+  {
+    id: 16,
+    img: 'images/q16.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q16an.jpg')", correct: true },
+    ]
+  }, 
+  {
+    id: 17,
+    img: 'images/q17.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q17an.jpg')", correct: true },
+    ]
+  }, 
+  {
+    id: 18,
+    img: 'images/q18.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q18an.jpg')", correct: true },
+    ]
+  }, 
+  {
+    id: 19,
+    img: 'images/q19.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q19an.jpg')", correct: true },
+    ]
+  }, 
+  {
+    id: 20,
+    img: 'images/q20.jpg',
+    answers: [
+      { number: 1, img: "URL('images/q20an.jpg')", correct: true },
+    ]
   }, 
 ]
 

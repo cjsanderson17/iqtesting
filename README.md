@@ -6,9 +6,8 @@ Here's a list of things to do:
     - Create images for questions & answers
   - Code
     - Calculate score
-    - Send data to database
+    - Weight questions
   - Other
-    - Host Website
     - Design Questions
 
 Clean up to do:
