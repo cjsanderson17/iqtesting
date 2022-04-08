@@ -229,7 +229,7 @@ function calculateScore(list, noOfQuestions) {
       score++
     }
   }
-  const iq = 140 * score / noOfQuestions
+  const iq = Math.floor(140 * score / noOfQuestions)
   scores = [score, iq]
   return scores
 }
