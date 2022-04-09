@@ -12,7 +12,7 @@
 <body>
   <div id="hud">
     <div class="hud-elements">
-      <div id="version">Version: 13 : 23 questions</div>
+      <div id="version">Version: 14 : 23 questions</div>
       <div id="timer" class="hide">20:00</div>
       <div id="hud-text" class="hide"></div>
       <div id="progress-bar" class="hide">
@@ -21,7 +21,28 @@
     </div>
     <div class="question-window">
       <div id="question-number" class="text hide">Question No.</div>
-      <img src="images/welcomePageImage.jpg" alt="A black square" id="main-image">
+      <h1 id="welcome-text" class="welcome-text">Welcome to quiz!</h1>
+      <div id="example-window" class="example-window">
+        <img src="images/examplequestion.jpg" alt="example" id="example-image" class="example-image">
+        <ul id="example-text" class="example-text">
+          <p>Questions in this quiz will be in the form of a grid with one element missing. The grid will follow certain rule(s) / pattern(s). Once you have worked out the relationship between the grid elements, choose which of the options fits the pattern. The number of options to choose from will vary between questions, but the majority will have 6 choices. In this example, notice that each row has one of each shape. Thus the square is the correct answer.</p>
+        </ul>
+      </div>
+      <ul id="info-text" class="info-text hide">
+        <h1>Terms of Participation</h1>
+        <p>This IQ test was designed and developed by Callum Sanderson as a part of his final year Computer Science project at the University of York.</p>
+        <p>The primary aims of the project are to create a new set of problems to test fluid intelligence and to design and develop a web-based software to test them.</p>
+        <li>A guide for the style of the questions and how to answer them is included on the home page, you can return to it using the 'Prev' button.</li>
+        <li>This test has a time limit of 20 minutes.</li>
+        <li>There are 25 questions. Attempt to answer all of them.</li>
+        <li>No personal information is collected or stored. Only your test results will be anonymously stored for the purpose of analysis to improve the accuracy of this test.</li>
+        <li>Participation in this test is voluntary</li>
+        <li>Please only complete this test once, as prior knowledge of the questions before taking the test may affect result analysis.</li>
+        <li>As this IQ test is in the early development stages, an accurate IQ estimate cannot be guaranteed.</li>
+        <li>Any questions or feedback on this test can be directed to cs1913@york.ac.uk</li>
+        <li>If you agree with the Terms of Participation, click the 'Start' button to begin the quiz.</li>
+      </ul>
+      <img src="" alt="question image" id="main-image" class="question-image hide">
       <div id="score-text" class="text hide">Score</div>
       <div id="save-status-text" class="text hide">...</div>
       <div class="button-space">
