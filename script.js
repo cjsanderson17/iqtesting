@@ -200,6 +200,7 @@ function selectAnswer(e) {
   const questionIndex = selectedAnswerList.indexOf('id: ' + (selectedButton.dataset.id))
   if (questionIndex != -1) {
     selectedAnswerList[questionIndex + 1] = (selectedButton.dataset.number)
+    selectedAnswerList[questionIndex + 2] = (selectedButton.dataset.correct)
     firstTimeSelect = false
   } else {
     selectedAnswerList.push('id: ' + (selectedButton.dataset.id), selectedButton.dataset.number, selectedButton.dataset.correct)
