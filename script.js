@@ -2,6 +2,10 @@
 const versionNo = document.getElementById('version')
 const continueButton = document.getElementById('continue-btn')
 const startButton = document.getElementById('start-btn')
+const welcomeText = document.getElementById('welcome-text')
+const exampleWindow = document.getElementById('example-window')
+const exampleImage = document.getElementById('example-image')
+const infoText = document.getElementById('info-text')
 const nextButton = document.getElementById('next-btn')
 const prevButton = document.getElementById('prev-btn')
 const finishButton = document.getElementById('finish-btn')
@@ -45,16 +49,22 @@ prevButton.addEventListener('click', () => {
 
 // loads the welcome page
 function loadWelcomePage() {
-  questionImage.src='images/welcomePageImage.jpg'
-  continueButton.classList.remove('hide')
   startButton.classList.add('hide')
   prevButton.classList.add('hide')
+  infoText.classList.add('hide')
+  exampleWindow.classList.remove('hide')
+  welcomeText.classList.remove('hide')
+  exampleImage.classList.remove('hide')
+  continueButton.classList.remove('hide')
+
 }
 
 // loads the information page
 function loadInfoPage() {
-  questionImage.src='images/infoPageImage.jpg'
+  welcomeText.classList.add('hide')
   continueButton.classList.add('hide')
+  exampleWindow.classList.add('hide')
+  infoText.classList.remove('hide')
   startButton.classList.remove('hide')
   prevButton.classList.remove('hide')
 }
@@ -79,9 +89,11 @@ function loadEndPage(scores) {
 // shuffles the questions and unhides them
 function startQuiz() {
   quizStarted = true
-  questionNumberText.classList.remove('hide')
+  infoText.classList.add('hide')
   versionNo.classList.add('hide')
   startButton.classList.add('hide')
+  questionImage.classList.remove('hide')
+  questionNumberText.classList.remove('hide')
   finishButton.classList.remove('hide')
   countdownTimer.classList.remove('hide')
   progressText.classList.remove('hide')
@@ -257,7 +269,10 @@ const questions = [
     answers: [
       { number: 1, img: "URL('images/1a.jpg')", correct: false },
       { number: 2, img: "URL('images/1b.jpg')", correct: false },
-      { number: 3, img: "URL('images/1c.jpg')", correct: true },
+      { number: 3, img: "URL('images/1c.jpg')", correct: false },
+      { number: 4, img: "URL('images/1d.jpg')", correct: true },
+      { number: 5, img: "URL('images/1e.jpg')", correct: false },
+      { number: 6, img: "URL('images/1f.jpg')", correct: false },
     ]
   },
   {
@@ -329,7 +344,7 @@ const questions = [
     id: 8,
     img: 'images/q8.jpg',
     answers: [
-      { number: 1, img: "URL('images/8a.jpg')", correct: true },
+      { number: 1, img: "URL('images/8a.jpg')", correct: false },
       { number: 2, img: "URL('images/8b.jpg')", correct: false },
       { number: 3, img: "URL('images/8c.jpg')", correct: false },
       { number: 4, img: "URL('images/8d.jpg')", correct: false },
@@ -401,9 +416,9 @@ const questions = [
     id: 14,
     img: 'images/q14.jpg',
     answers: [
-      { number: 1, img: "URL('images/14a.jpg')", correct: false },
+      { number: 1, img: "URL('images/14a.jpg')", correct: true },
       { number: 2, img: "URL('images/14b.jpg')", correct: false },
-      { number: 3, img: "URL('images/14c.jpg')", correct: true },
+      { number: 3, img: "URL('images/14c.jpg')", correct: false },
       { number: 4, img: "URL('images/14d.jpg')", correct: false },
       { number: 5, img: "URL('images/14e.jpg')", correct: false },
       { number: 6, img: "URL('images/14f.jpg')", correct: false },
@@ -462,7 +477,7 @@ const questions = [
     img: 'images/q19.jpg',
     answers: [
       { number: 1, img: "URL('images/19a.jpg')", correct: true },
-      { number: 2, img: "URL('images/19.jpg')", correct: false },
+      { number: 2, img: "URL('images/19b.jpg')", correct: false },
       { number: 3, img: "URL('images/19c.jpg')", correct: false },
       { number: 4, img: "URL('images/19d.jpg')", correct: false },
       { number: 5, img: "URL('images/19e.jpg')", correct: false },
@@ -498,7 +513,7 @@ const questions = [
     img: 'images/q22.jpg',
     answers: [
       { number: 1, img: "URL('images/22a.jpg')", correct: false },
-      { number: 2, img: "URL('images/22.jpg')", correct: false },
+      { number: 2, img: "URL('images/22b.jpg')", correct: false },
       { number: 3, img: "URL('images/22c.jpg')", correct: false },
       { number: 4, img: "URL('images/22d.jpg')", correct: true },
       { number: 5, img: "URL('images/22e.jpg')", correct: false },
