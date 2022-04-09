@@ -1,6 +1,11 @@
 // defining elements
+const versionNo = document.getElementById('version')
 const continueButton = document.getElementById('continue-btn')
 const startButton = document.getElementById('start-btn')
+const welcomeText = document.getElementById('welcome-text')
+const exampleWindow = document.getElementById('example-window')
+const exampleImage = document.getElementById('example-image')
+const infoText = document.getElementById('info-text')
 const nextButton = document.getElementById('next-btn')
 const prevButton = document.getElementById('prev-btn')
 const finishButton = document.getElementById('finish-btn')
@@ -11,8 +16,11 @@ const progressBarFull = document.getElementById('progress-bar-full')
 const questionContainerElement = document.getElementById('answer-btns')
 const questionImage = document.getElementById('main-image')
 const answerButtonsElement = document.getElementById('answer-btns')
+const questionNumberText = document.getElementById('question-number')
 const scoreText = document.getElementById('score-text')
-let shuffledQuestions, currentQuestionIndex
+const saveStatusText = document.getElementById('save-status-text')
+const endText = document.getElementById('end-text')
+let currentQuestionIndex, firstTimeSelect
 let counter = 1200
 let quizStarted = false
 
@@ -42,22 +50,29 @@ prevButton.addEventListener('click', () => {
 
 // loads the welcome page
 function loadWelcomePage() {
-  questionImage.src='images/welcomePageImage.jpg'
-  continueButton.classList.remove('hide')
   startButton.classList.add('hide')
   prevButton.classList.add('hide')
+  infoText.classList.add('hide')
+  exampleWindow.classList.remove('hide')
+  welcomeText.classList.remove('hide')
+  exampleImage.classList.remove('hide')
+  continueButton.classList.remove('hide')
+
 }
 
 // loads the information page
 function loadInfoPage() {
-  questionImage.src='images/infoPageImage.jpg'
+  welcomeText.classList.add('hide')
   continueButton.classList.add('hide')
+  exampleWindow.classList.add('hide')
+  infoText.classList.remove('hide')
   startButton.classList.remove('hide')
   prevButton.classList.remove('hide')
 }
 
 // loads the end page
 function loadEndPage(scores) {
+  questionNumberText.classList.add('hide')
   nextButton.classList.add('hide')
   prevButton.classList.add('hide')
   finishButton.classList.add('hide')
@@ -66,21 +81,28 @@ function loadEndPage(scores) {
   progressBarElement.classList.add('hide')
   progressBarFull.classList.add('hide')
   answerButtonsElement.classList.add('hide')
-  scoreText.classList.remove('hide')
-  scoreText.innerText = "Your score was: " + scores[0] + " / " + shuffledQuestions.length + "\nEstimated IQ: " + scores[1]
   questionImage.classList.add('hide')
+
+  scoreText.classList.remove('hide')
+  saveStatusText.classList.remove('hide')
+  endText.classList.remove('hide')
+  scoreText.innerText = "Your score was: " + scores[0] + " / " + questions.length + "\nIQ score cannot be accurately estimated in this version"
+
 }
 
 // shuffles the questions and unhides them
 function startQuiz() {
   quizStarted = true
+  infoText.classList.add('hide')
+  versionNo.classList.add('hide')
   startButton.classList.add('hide')
+  questionImage.classList.remove('hide')
+  questionNumberText.classList.remove('hide')
   finishButton.classList.remove('hide')
   countdownTimer.classList.remove('hide')
   progressText.classList.remove('hide')
   questionContainerElement.classList.remove('hide')
   progressBarElement.classList.remove('hide')
-  shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   startTimer(counter)
   setQuestion()
@@ -115,14 +137,14 @@ function startTimer(time) {
 function setQuestion() {
   resetState()
   updateProgress()
-  showQuestion(shuffledQuestions[currentQuestionIndex])
+  showQuestion(questions[currentQuestionIndex])
 }
 
 // controls hide for next & prev, deletes previous answer buttons
 function resetState() {
   nextButton.classList.remove('hide')
   prevButton.classList.remove('hide')
-  if (currentQuestionIndex + 1 == shuffledQuestions.length) {
+  if (currentQuestionIndex + 1 == questions.length) {
     nextButton.classList.add('hide')
   } 
   if (currentQuestionIndex == 0){
@@ -136,16 +158,16 @@ function resetState() {
 
 // updates progress bar
 function updateProgress() {
-  progressText.innerText = `V.11.Answered: ${selectedAnswerList.length / 4} / ${shuffledQuestions.length}`
-  let progressPercentage = ((selectedAnswerList.length / 4) / shuffledQuestions.length) * 100
+  progressText.innerText = `Answered: ${selectedAnswerList.length / 3} / ${questions.length}`
+  let progressPercentage = ((selectedAnswerList.length / 3) / questions.length) * 100
   progressBarFull.style.width = `${progressPercentage}%`
 }
 
 // applies questions to buttons
 function showQuestion(question) {
+  questionNumberText.innerHTML = "Question " + (currentQuestionIndex + 1)
   questionImage.src = question.img
   questionImage.style.height = '50%'
-  let answerCounter = 0
   question.answers.forEach(answer => {
     const button = document.createElement('button')
     button.style.backgroundImage = answer.img
@@ -154,30 +176,21 @@ function showQuestion(question) {
     button.dataset.id = question.id
     button.classList.add('answer-btns', 'btn')
 
-    const questionIndex = selectedAnswerList.indexOf('order: ' + (currentQuestionIndex + 1))
+    const questionIndex = selectedAnswerList.indexOf('id: ' + (currentQuestionIndex + 1))
     if (questionIndex != -1) {
-      if (selectedAnswerList[questionIndex - 2] == button.dataset.number) {
+      if (selectedAnswerList[questionIndex + 1] == button.dataset.number) {
         button.classList.add('selected')
       }
     } 
     
-    // adds correct tag to button iff answer is correct - useful for later
-    if (answer.correct) {
-        button.dataset.correct = answer.correct
-    }
     button.addEventListener('click', selectAnswer)
-    /*if (answerCounter == 3) {
-      console.log('broke')
-      const lineBreak = document.createElement('break')
-      answerButtonsElement.appendChild(lineBreak)
-    }*/
     answerButtonsElement.appendChild(button)
-    answerCounter++
   })
 }
 
 // visual selection: limited to one answer, selection status saved locally
 function selectAnswer(e) {
+  
   const selectedButton = e.target
   Array.from(answerButtonsElement.children).forEach(button => {
     removeSelected(button)
@@ -187,13 +200,18 @@ function selectAnswer(e) {
   const questionIndex = selectedAnswerList.indexOf('id: ' + (selectedButton.dataset.id))
   if (questionIndex != -1) {
     selectedAnswerList[questionIndex + 1] = (selectedButton.dataset.number)
+    firstTimeSelect = false
   } else {
-    selectedAnswerList.push('id: ' + (selectedButton.dataset.id), selectedButton.dataset.number, selectedButton.dataset.correct, 'order: ' + (currentQuestionIndex + 1))
+    selectedAnswerList.push('id: ' + (selectedButton.dataset.id), selectedButton.dataset.number, selectedButton.dataset.correct)
+    firstTimeSelect = true
   }
   updateProgress()
   updateFinish()
-  
-  // send to database after 'finish' clicked
+  if (firstTimeSelect == true && (currentQuestionIndex + 1) != questions.length && selectedAnswerList.indexOf('id: ' + (currentQuestionIndex + 2)) == -1) {
+    firstTimeSelect = false
+    currentQuestionIndex++
+    setQuestion()
+  }
 }
 
 // removes selection from button
@@ -203,17 +221,17 @@ function removeSelected(element) {
 
 // updates if the user can finish
 function updateFinish() {
-  if ((selectedAnswerList.length / 4) == shuffledQuestions.length) {
+  if ((selectedAnswerList.length / 3) == questions.length) {
     finishButton.classList.remove('unavailable')
   }
 }
 
 // cleans up quiz and shows result
 function endQuiz() {
-  console.log(window.value)
+  const remainingTime = window.value
   clearInterval(counter)
-  selectedAnswerList.push("time remaining: " + window.value)
-  score = calculateScore(selectedAnswerList, shuffledQuestions.length)
+  score = calculateScore(selectedAnswerList, questions.length)
+  saveUserData(remainingTime, selectedAnswerList, score)
   loadEndPage(score)
 }
 
@@ -221,62 +239,331 @@ function endQuiz() {
 function calculateScore(list, noOfQuestions) {
   let score = 0
   for (let i = 1; i <= noOfQuestions; i++) {
-    if (list[4*i - 2] == "true") {
+    if (list[3*i - 1] == "true") {
       score++
     }
   }
-  const iq = 140 * score / noOfQuestions
+  //const iq = Math.floor(140 * score / noOfQuestions)
+  iq = 0 // currently cant calculate IQ
   scores = [score, iq]
   return scores
+}
+
+//
+function saveUserData(userTime, answerList, scores) {
+  let answersString = answerList.toString()
+  $.post('saveuserdata.php',
+  {
+    score: scores[0],
+    iq: scores[1],
+    answers: answersString,
+    timeremaining: userTime,
+  },
+  function(data, status) {
+    saveStatusText.innerHTML = data;
+    $('#saveStatusText').fadeIn(100);
+    setTimeout(function() {
+      $('saveStatusText').fadeOut(100); }, 3000);
+  })
 }
 
 const questions = [
   {
     id: 1,
+    img: 'images/q2.jpg',
+    answers: [
+      { number: 1, img: "URL('images/2a.jpg')", correct: false },
+      { number: 2, img: "URL('images/2b.jpg')", correct: false },
+      { number: 3, img: "URL('images/2c.jpg')", correct: true },
+      { number: 4, img: "URL('images/2d.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 2,
+    img: 'images/q3.jpg',
+    answers: [
+      { number: 1, img: "URL('images/3a.jpg')", correct: true },
+      { number: 2, img: "URL('images/3b.jpg')", correct: false },
+      { number: 3, img: "URL('images/3c.jpg')", correct: false },
+      { number: 4, img: "URL('images/3d.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 3,
+    img: 'images/q16.jpg',
+    answers: [
+      { number: 1, img: "URL('images/16a.jpg')", correct: false },
+      { number: 2, img: "URL('images/16b.jpg')", correct: true },
+      { number: 3, img: "URL('images/16c.jpg')", correct: false },
+      { number: 4, img: "URL('images/16d.jpg')", correct: false },
+      { number: 5, img: "URL('images/16e.jpg')", correct: false },
+      { number: 6, img: "URL('images/16f.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 4,
     img: 'images/q1.jpg',
     answers: [
-      { number: 1, img: "URL('images/q1a1.jpg')", correct: true },
-      { number: 2, img: "URL('images/q1a2.jpg')", correct: false },
-      { number: 3, img: "URL('images/q1a3.jpg')", correct: false },
+      { number: 1, img: "URL('images/1a.jpg')", correct: false },
+      { number: 2, img: "URL('images/1b.jpg')", correct: false },
+      { number: 3, img: "URL('images/1c.jpg')", correct: false },
+      { number: 4, img: "URL('images/1d.jpg')", correct: true },
+      { number: 5, img: "URL('images/1e.jpg')", correct: false },
+      { number: 6, img: "URL('images/1f.jpg')", correct: false },
     ]
   },
   {
-    question: 'Edit',
-    img: 'images/questionImage.jpg',
-    id: 2,
+    id: 5,
+    img: 'images/q4.jpg',
     answers: [
-      { number: 1, text: 'Yes', correct: true },
-      { number: 2, text: 'Yeah', correct: true, },
-      { number: 3, text: 'Yep', correct: true, },
-      { number: 4, text: 'Ye', correct: true, },
-      { number: 5, text: 'Ye', correct: true, },
-      { number: 6, text: 'Ye', correct: true, }
+      { number: 1, img: "URL('images/4a.jpg')", correct: false },
+      { number: 2, img: "URL('images/4b.jpg')", correct: true },
+      { number: 3, img: "URL('images/4c.jpg')", correct: false },
+      { number: 4, img: "URL('images/4d.jpg')", correct: false },
+      { number: 5, img: "URL('images/4e.jpg')", correct: false },
+      { number: 6, img: "URL('images/4f.jpg')", correct: false },
     ]
   },
   {
-    question: 'Edit',
-    img: 'images/questionImage.jpg',
-    id: 3,
+    id: 6,
+    img: 'images/q6.jpg',
     answers: [
-      { number: 1, text: 'A', correct: false, },
-      { number: 2, text: 'B', correct: true, },
-      { number: 3, text: 'C', correct: false, },
-      { number: 4, text: 'D', correct: false, },
-      { number: 5, text: 'C', correct: false, },
-      { number: 6, text: 'C', correct: false, }
+      { number: 1, img: "URL('images/6a.jpg')", correct: false },
+      { number: 2, img: "URL('images/6b.jpg')", correct: false },
+      { number: 3, img: "URL('images/6c.jpg')", correct: false },
+      { number: 4, img: "URL('images/6d.jpg')", correct: false },
+      { number: 5, img: "URL('images/6e.jpg')", correct: false },
+      { number: 6, img: "URL('images/6f.jpg')", correct: true },
     ]
   },
   {
-    question: 'What is 4 * 2?',
-    img: 'images/questionImage.jpg',
-    id: 4,
+    id: 7,
+    img: 'images/q12.jpg',
     answers: [
-      { number: 1, text: '6', correct: false, },
-      { number: 2, text: '6', correct: false, },
-      { number: 3, text: '6', correct: false, },
-      { number: 4, text: '8', correct: true, },
-      { number: 5, text: '6', correct: false, },
-      { number: 6, text: '6', correct: false, }
+      { number: 1, img: "URL('images/12a.jpg')", correct: false },
+      { number: 2, img: "URL('images/12b.jpg')", correct: false },
+      { number: 3, img: "URL('images/12c.jpg')", correct: false },
+      { number: 4, img: "URL('images/12d.jpg')", correct: false },
+      { number: 5, img: "URL('images/12e.jpg')", correct: false },
+      { number: 6, img: "URL('images/12f.jpg')", correct: true },
+    ]
+  },
+  {
+    id: 8,
+    img: 'images/q19.jpg',
+    answers: [
+      { number: 1, img: "URL('images/19a.jpg')", correct: true },
+      { number: 2, img: "URL('images/19b.jpg')", correct: false },
+      { number: 3, img: "URL('images/19c.jpg')", correct: false },
+      { number: 4, img: "URL('images/19d.jpg')", correct: false },
+      { number: 5, img: "URL('images/19e.jpg')", correct: false },
+      { number: 6, img: "URL('images/19f.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 9,
+    img: 'images/q13.jpg',
+    answers: [
+      { number: 1, img: "URL('images/13a.jpg')", correct: true },
+      { number: 2, img: "URL('images/13b.jpg')", correct: false },
+      { number: 3, img: "URL('images/13c.jpg')", correct: false },
+      { number: 4, img: "URL('images/13d.jpg')", correct: false },
+      { number: 5, img: "URL('images/13e.jpg')", correct: false },
+      { number: 6, img: "URL('images/13f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 10,
+    img: 'images/q14.jpg',
+    answers: [
+      { number: 1, img: "URL('images/14a.jpg')", correct: true },
+      { number: 2, img: "URL('images/14b.jpg')", correct: false },
+      { number: 3, img: "URL('images/14c.jpg')", correct: false },
+      { number: 4, img: "URL('images/14d.jpg')", correct: false },
+      { number: 5, img: "URL('images/14e.jpg')", correct: false },
+      { number: 6, img: "URL('images/14f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 11,
+    img: 'images/q5.jpg',
+    answers: [
+      { number: 1, img: "URL('images/5a.jpg')", correct: false },
+      { number: 2, img: "URL('images/5b.jpg')", correct: false },
+      { number: 3, img: "URL('images/5c.jpg')", correct: true },
+      { number: 4, img: "URL('images/5d.jpg')", correct: false },
+      { number: 5, img: "URL('images/5e.jpg')", correct: false },
+      { number: 6, img: "URL('images/5f.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 12,
+    img: 'images/q7.jpg',
+    answers: [
+      { number: 1, img: "URL('images/7a.jpg')", correct: false },
+      { number: 2, img: "URL('images/7b.jpg')", correct: false },
+      { number: 3, img: "URL('images/7c.jpg')", correct: false },
+      { number: 4, img: "URL('images/7d.jpg')", correct: true },
+      { number: 5, img: "URL('images/7e.jpg')", correct: false },
+      { number: 6, img: "URL('images/7f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 13,
+    img: 'images/q20.jpg',
+    answers: [
+      { number: 1, img: "URL('images/20a.jpg')", correct: false },
+      { number: 2, img: "URL('images/20b.jpg')", correct: false },
+      { number: 3, img: "URL('images/20c.jpg')", correct: false },
+      { number: 4, img: "URL('images/20d.jpg')", correct: true },
+      { number: 5, img: "URL('images/20e.jpg')", correct: false },
+      { number: 6, img: "URL('images/20f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 14,
+    img: 'images/q8.jpg',
+    answers: [
+      { number: 1, img: "URL('images/8a.jpg')", correct: false },
+      { number: 2, img: "URL('images/8b.jpg')", correct: false },
+      { number: 3, img: "URL('images/8c.jpg')", correct: false },
+      { number: 4, img: "URL('images/8d.jpg')", correct: false },
+      { number: 5, img: "URL('images/8e.jpg')", correct: true },
+      { number: 6, img: "URL('images/8f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 15,
+    img: 'images/q15.jpg',
+    answers: [
+      { number: 1, img: "URL('images/15a.jpg')", correct: false },
+      { number: 2, img: "URL('images/15b.jpg')", correct: false },
+      { number: 3, img: "URL('images/15c.jpg')", correct: false },
+      { number: 4, img: "URL('images/15d.jpg')", correct: true },
+      { number: 5, img: "URL('images/15e.jpg')", correct: false },
+      { number: 6, img: "URL('images/15f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 16,
+    img: 'images/q9.jpg',
+    answers: [
+      { number: 1, img: "URL('images/9a.jpg')", correct: false },
+      { number: 2, img: "URL('images/9b.jpg')", correct: false },
+      { number: 3, img: "URL('images/9c.jpg')", correct: false },
+      { number: 4, img: "URL('images/9d.jpg')", correct: false },
+      { number: 5, img: "URL('images/9e.jpg')", correct: true },
+      { number: 6, img: "URL('images/9f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 17,
+    img: 'images/q23.jpg',
+    answers: [
+      { number: 1, img: "URL('images/23a.jpg')", correct: false },
+      { number: 2, img: "URL('images/23b.jpg')", correct: false },
+      { number: 3, img: "URL('images/23c.jpg')", correct: false },
+      { number: 4, img: "URL('images/23d.jpg')", correct: true },
+      { number: 5, img: "URL('images/23e.jpg')", correct: false },
+      { number: 6, img: "URL('images/23f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 18,
+    img: 'images/q24.jpg',
+    answers: [
+      { number: 1, img: "URL('images/24a.jpg')", correct: false },
+      { number: 2, img: "URL('images/24b.jpg')", correct: false },
+      { number: 3, img: "URL('images/24c.jpg')", correct: false },
+      { number: 4, img: "URL('images/24d.jpg')", correct: false },
+      { number: 5, img: "URL('images/24e.jpg')", correct: true },
+      { number: 6, img: "URL('images/24f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 19,
+    img: 'images/q10.jpg',
+    answers: [
+      { number: 1, img: "URL('images/10a.jpg')", correct: false },
+      { number: 2, img: "URL('images/10b.jpg')", correct: false },
+      { number: 3, img: "URL('images/10c.jpg')", correct: false },
+      { number: 4, img: "URL('images/10d.jpg')", correct: false },
+      { number: 5, img: "URL('images/10e.jpg')", correct: true },
+      { number: 6, img: "URL('images/10f.jpg')", correct: false },
+    ]
+
+  }, 
+  {
+    id: 20,
+    img: 'images/q11.jpg',
+    answers: [
+      { number: 1, img: "URL('images/11a.jpg')", correct: false },
+      { number: 2, img: "URL('images/11b.jpg')", correct: false },
+      { number: 3, img: "URL('images/11c.jpg')", correct: false },
+      { number: 4, img: "URL('images/11d.jpg')", correct: true },
+      { number: 5, img: "URL('images/11e.jpg')", correct: false },
+      { number: 6, img: "URL('images/11f.jpg')", correct: false },
+    ]
+
+  },
+  {
+    id: 21,
+    img: 'images/q17.jpg',
+    answers: [
+      { number: 1, img: "URL('images/17a.jpg')", correct: false },
+      { number: 2, img: "URL('images/17b.jpg')", correct: true },
+      { number: 3, img: "URL('images/17c.jpg')", correct: false },
+      { number: 4, img: "URL('images/17d.jpg')", correct: false },
+      { number: 5, img: "URL('images/17e.jpg')", correct: false },
+      { number: 6, img: "URL('images/17f.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 22,
+    img: 'images/q22.jpg',
+    answers: [
+      { number: 1, img: "URL('images/22a.jpg')", correct: false },
+      { number: 2, img: "URL('images/22b.jpg')", correct: false },
+      { number: 3, img: "URL('images/22c.jpg')", correct: false },
+      { number: 4, img: "URL('images/22d.jpg')", correct: true },
+      { number: 5, img: "URL('images/22e.jpg')", correct: false },
+      { number: 6, img: "URL('images/22f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 23,
+    img: 'images/q18.jpg',
+    answers: [
+      { number: 1, img: "URL('images/18a.jpg')", correct: false },
+      { number: 2, img: "URL('images/18b.jpg')", correct: false },
+      { number: 3, img: "URL('images/18c.jpg')", correct: false },
+      { number: 4, img: "URL('images/18d.jpg')", correct: false },
+      { number: 5, img: "URL('images/18e.jpg')", correct: false },
+      { number: 6, img: "URL('images/18f.jpg')", correct: true },
+    ]
+  },
+  {
+    id: 24,
+    img: 'images/q21.jpg',
+    answers: [
+      { number: 1, img: "URL('images/21a.jpg')", correct: false },
+      { number: 2, img: "URL('images/21b.jpg')", correct: false },
+      { number: 3, img: "URL('images/21c.jpg')", correct: false },
+      { number: 4, img: "URL('images/21d.jpg')", correct: false },
+      { number: 5, img: "URL('images/21e.jpg')", correct: false },
+      { number: 6, img: "URL('images/21f.jpg')", correct: true },
+    ]
+  },
+  {
+    id: 25,
+    img: 'images/q25.jpg',
+    answers: [
+      { number: 1, img: "URL('images/25a.jpg')", correct: false },
+      { number: 2, img: "URL('images/25b.jpg')", correct: false },
+      { number: 3, img: "URL('images/25c.jpg')", correct: true },
+      { number: 4, img: "URL('images/25d.jpg')", correct: false },
+      { number: 5, img: "URL('images/25e.jpg')", correct: false },
+      { number: 6, img: "URL('images/25f.jpg')", correct: false },
     ]
   }
 ]
