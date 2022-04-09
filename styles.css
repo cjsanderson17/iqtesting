@@ -114,6 +114,9 @@
   .text {
     font-size: 2vh;
     font-weight: bold;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    text-align: center;
   }
 
   /* Image */
@@ -183,8 +186,6 @@
       line-height: 1.5;
     }
   }
-
-
 
   .info-text {
     max-width: 100%;
@@ -320,6 +321,12 @@
     justify-self: center;
     grid-area: finish;
   }
+
+  @media only screen and (max-device-width: 480px) and (orientation: portrait) {
+   .continue-btn {
+     font-size: 6vw;
+   }
+  }  
 
   /* Attributes */
 
