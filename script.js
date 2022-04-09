@@ -19,6 +19,7 @@ const answerButtonsElement = document.getElementById('answer-btns')
 const questionNumberText = document.getElementById('question-number')
 const scoreText = document.getElementById('score-text')
 const saveStatusText = document.getElementById('save-status-text')
+const endText = document.getElementById('end-text')
 let currentQuestionIndex, firstTimeSelect
 let counter = 1200
 let quizStarted = false
@@ -80,10 +81,13 @@ function loadEndPage(scores) {
   progressBarElement.classList.add('hide')
   progressBarFull.classList.add('hide')
   answerButtonsElement.classList.add('hide')
+  questionImage.classList.add('hide')
+
   scoreText.classList.remove('hide')
   saveStatusText.classList.remove('hide')
-  scoreText.innerText = "Your score was: " + scores[0] + " / " + questions.length + "\nEstimated IQ: " + scores[1]
-  questionImage.classList.add('hide')
+  endText.classList.remove('hide')
+  scoreText.innerText = "Your score was: " + scores[0] + " / " + questions.length + "\nIQ score cannot be accurately estimated in this version"
+
 }
 
 // shuffles the questions and unhides them
@@ -239,7 +243,8 @@ function calculateScore(list, noOfQuestions) {
       score++
     }
   }
-  const iq = Math.floor(140 * score / noOfQuestions)
+  //const iq = Math.floor(140 * score / noOfQuestions)
+  iq = 0 // currently cant calculate IQ
   scores = [score, iq]
   return scores
 }
