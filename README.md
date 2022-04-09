@@ -1,14 +1,8 @@
 # iqtesting
 Here's a list of things to do:
-  - Visual Design
-    - Create image for Welcome page
-    - Create image for Info page
-    - Create images for questions & answers
   - Code
     - Calculate score
     - Weight questions
-  - Other
-    - Design Questions
 
 Clean up to do:
   - Visual Design
