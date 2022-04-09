@@ -201,9 +201,11 @@
     }
     
     .example-text {
+      max-height: 55%;
       padding-right: 0.8vw;
       padding-left: 0.8vw;
-      font-size: 2vh;
+      margin-top: 0;
+      font-size: 1.8vh;
       text-align: center;
       line-height: 1.5;
     }
