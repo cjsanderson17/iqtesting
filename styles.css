@@ -66,6 +66,16 @@
     text-align: center;
   }
 
+  @media only screen and (max-device-width: 480px) and (orientation: portrait) {
+    #timer {
+      font-size: 7vw;
+    }
+
+    #hud-text {
+      font-size: 7vw;
+    }
+  }
+
   #progress-bar {
     width: 80%;
     height: 25%;
@@ -151,13 +161,6 @@
     justify-self: end;
   }
 
-  @media only screen and (max-device-width: 480px) and (orientation: portrait) {
-    .example-image {
-      height: 40%;
-      object-fit: cover;
-    }
-  }
-
   .example-text {
     padding-right: 2vw;
     font-size: 1.5rem;
@@ -167,6 +170,11 @@
   }
 
   @media only screen and (max-device-width: 480px) and (orientation: portrait) {
+    .example-image {
+      height: 40%;
+      object-fit: cover;
+    }
+    
     .example-text {
       padding-right: 0.8vw;
       padding-left: 0.8vw;
