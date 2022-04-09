@@ -270,6 +270,38 @@ function saveUserData(userTime, answerList, scores) {
 const questions = [
   {
     id: 1,
+    img: 'images/q2.jpg',
+    answers: [
+      { number: 1, img: "URL('images/2a.jpg')", correct: false },
+      { number: 2, img: "URL('images/2b.jpg')", correct: false },
+      { number: 3, img: "URL('images/2c.jpg')", correct: true },
+      { number: 4, img: "URL('images/2d.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 2,
+    img: 'images/q3.jpg',
+    answers: [
+      { number: 1, img: "URL('images/3a.jpg')", correct: true },
+      { number: 2, img: "URL('images/3b.jpg')", correct: false },
+      { number: 3, img: "URL('images/3c.jpg')", correct: false },
+      { number: 4, img: "URL('images/3d.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 3,
+    img: 'images/q16.jpg',
+    answers: [
+      { number: 1, img: "URL('images/16a.jpg')", correct: false },
+      { number: 2, img: "URL('images/16b.jpg')", correct: true },
+      { number: 3, img: "URL('images/16c.jpg')", correct: false },
+      { number: 4, img: "URL('images/16d.jpg')", correct: false },
+      { number: 5, img: "URL('images/16e.jpg')", correct: false },
+      { number: 6, img: "URL('images/16f.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 4,
     img: 'images/q1.jpg',
     answers: [
       { number: 1, img: "URL('images/1a.jpg')", correct: false },
@@ -281,44 +313,13 @@ const questions = [
     ]
   },
   {
-    id: 2,
-    img: 'images/q2.jpg',
-    answers: [
-      { number: 1, img: "URL('images/2a.jpg')", correct: false },
-      { number: 2, img: "URL('images/2b.jpg')", correct: false },
-      { number: 3, img: "URL('images/2c.jpg')", correct: true },
-      { number: 4, img: "URL('images/2d.jpg')", correct: false },
-    ]
-  },
-  {
-    id: 3,
-    img: 'images/q3.jpg',
-    answers: [
-      { number: 1, img: "URL('images/3a.jpg')", correct: true },
-      { number: 2, img: "URL('images/3b.jpg')", correct: false },
-      { number: 3, img: "URL('images/3c.jpg')", correct: false },
-      { number: 4, img: "URL('images/3d.jpg')", correct: false },
-    ]
-  },
-  {
-    id: 4,
+    id: 5,
     img: 'images/q4.jpg',
     answers: [
       { number: 1, img: "URL('images/4a.jpg')", correct: false },
       { number: 2, img: "URL('images/4b.jpg')", correct: true },
       { number: 3, img: "URL('images/4c.jpg')", correct: false },
       { number: 4, img: "URL('images/4c.jpg')", correct: false },
-    ]
-  },
-  {
-    id: 5,
-    img: 'images/q5.jpg',
-    answers: [
-      { number: 1, img: "URL('images/5a.jpg')", correct: false },
-      { number: 2, img: "URL('images/5b.jpg')", correct: false },
-      { number: 3, img: "URL('images/5c.jpg')", correct: true },
-      { number: 4, img: "URL('images/5d.jpg')", correct: false },
-      { number: 5, img: "URL('images/5e.jpg')", correct: false },
     ]
   },
   {
@@ -335,66 +336,6 @@ const questions = [
   },
   {
     id: 7,
-    img: 'images/q7.jpg',
-    answers: [
-      { number: 1, img: "URL('images/7a.jpg')", correct: false },
-      { number: 2, img: "URL('images/7b.jpg')", correct: false },
-      { number: 3, img: "URL('images/7c.jpg')", correct: false },
-      { number: 4, img: "URL('images/7d.jpg')", correct: true },
-      { number: 5, img: "URL('images/7e.jpg')", correct: false },
-      { number: 6, img: "URL('images/7f.jpg')", correct: false },
-    ]
-  },
-  {
-    id: 8,
-    img: 'images/q8.jpg',
-    answers: [
-      { number: 1, img: "URL('images/8a.jpg')", correct: false },
-      { number: 2, img: "URL('images/8b.jpg')", correct: false },
-      { number: 3, img: "URL('images/8c.jpg')", correct: false },
-      { number: 4, img: "URL('images/8d.jpg')", correct: false },
-      { number: 5, img: "URL('images/8e.jpg')", correct: true },
-      { number: 6, img: "URL('images/8f.jpg')", correct: false },
-    ]
-  },
-  {
-    id: 9,
-    img: 'images/q9.jpg',
-    answers: [
-      { number: 1, img: "URL('images/9a.jpg')", correct: false },
-      { number: 2, img: "URL('images/9b.jpg')", correct: false },
-      { number: 3, img: "URL('images/9c.jpg')", correct: false },
-      { number: 4, img: "URL('images/9d.jpg')", correct: false },
-      { number: 5, img: "URL('images/9e.jpg')", correct: true },
-      { number: 6, img: "URL('images/9f.jpg')", correct: false },
-    ]
-  }, 
-  {
-    id: 10,
-    img: 'images/q10.jpg',
-    answers: [
-      { number: 1, img: "URL('images/10a.jpg')", correct: false },
-      { number: 2, img: "URL('images/10b.jpg')", correct: false },
-      { number: 3, img: "URL('images/10c.jpg')", correct: false },
-      { number: 4, img: "URL('images/10d.jpg')", correct: false },
-      { number: 5, img: "URL('images/10e.jpg')", correct: true },
-      { number: 6, img: "URL('images/10f.jpg')", correct: false },
-    ]
-  }, 
-  {
-    id: 11,
-    img: 'images/q11.jpg',
-    answers: [
-      { number: 1, img: "URL('images/11a.jpg')", correct: false },
-      { number: 2, img: "URL('images/11b.jpg')", correct: false },
-      { number: 3, img: "URL('images/11c.jpg')", correct: false },
-      { number: 4, img: "URL('images/11d.jpg')", correct: true },
-      { number: 5, img: "URL('images/11e.jpg')", correct: false },
-      { number: 6, img: "URL('images/11f.jpg')", correct: false },
-    ]
-  },
-  {
-    id: 12,
     img: 'images/q12.jpg',
     answers: [
       { number: 1, img: "URL('images/12a.jpg')", correct: false },
@@ -404,9 +345,21 @@ const questions = [
       { number: 5, img: "URL('images/12e.jpg')", correct: false },
       { number: 6, img: "URL('images/12f.jpg')", correct: true },
     ]
-  }, 
+  },
   {
-    id: 13,
+    id: 8,
+    img: 'images/q19.jpg',
+    answers: [
+      { number: 1, img: "URL('images/19a.jpg')", correct: true },
+      { number: 2, img: "URL('images/19b.jpg')", correct: false },
+      { number: 3, img: "URL('images/19c.jpg')", correct: false },
+      { number: 4, img: "URL('images/19d.jpg')", correct: false },
+      { number: 5, img: "URL('images/19e.jpg')", correct: false },
+      { number: 6, img: "URL('images/19f.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 9,
     img: 'images/q13.jpg',
     answers: [
       { number: 1, img: "URL('images/13a.jpg')", correct: true },
@@ -418,7 +371,7 @@ const questions = [
     ]
   }, 
   {
-    id: 14,
+    id: 10,
     img: 'images/q14.jpg',
     answers: [
       { number: 1, img: "URL('images/14a.jpg')", correct: true },
@@ -427,6 +380,53 @@ const questions = [
       { number: 4, img: "URL('images/14d.jpg')", correct: false },
       { number: 5, img: "URL('images/14e.jpg')", correct: false },
       { number: 6, img: "URL('images/14f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 11,
+    img: 'images/q5.jpg',
+    answers: [
+      { number: 1, img: "URL('images/5a.jpg')", correct: false },
+      { number: 2, img: "URL('images/5b.jpg')", correct: false },
+      { number: 3, img: "URL('images/5c.jpg')", correct: true },
+      { number: 4, img: "URL('images/5d.jpg')", correct: false },
+      { number: 5, img: "URL('images/5e.jpg')", correct: false },
+    ]
+  },
+  {
+    id: 12,
+    img: 'images/q7.jpg',
+    answers: [
+      { number: 1, img: "URL('images/7a.jpg')", correct: false },
+      { number: 2, img: "URL('images/7b.jpg')", correct: false },
+      { number: 3, img: "URL('images/7c.jpg')", correct: false },
+      { number: 4, img: "URL('images/7d.jpg')", correct: true },
+      { number: 5, img: "URL('images/7e.jpg')", correct: false },
+      { number: 6, img: "URL('images/7f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 13,
+    img: 'images/q20.jpg',
+    answers: [
+      { number: 1, img: "URL('images/20a.jpg')", correct: false },
+      { number: 2, img: "URL('images/20b.jpg')", correct: false },
+      { number: 3, img: "URL('images/20c.jpg')", correct: false },
+      { number: 4, img: "URL('images/20d.jpg')", correct: true },
+      { number: 5, img: "URL('images/20e.jpg')", correct: false },
+      { number: 6, img: "URL('images/20f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 14,
+    img: 'images/q8.jpg',
+    answers: [
+      { number: 1, img: "URL('images/8a.jpg')", correct: false },
+      { number: 2, img: "URL('images/8b.jpg')", correct: false },
+      { number: 3, img: "URL('images/8c.jpg')", correct: false },
+      { number: 4, img: "URL('images/8d.jpg')", correct: false },
+      { number: 5, img: "URL('images/8e.jpg')", correct: true },
+      { number: 6, img: "URL('images/8f.jpg')", correct: false },
     ]
   }, 
   {
@@ -443,18 +443,68 @@ const questions = [
   }, 
   {
     id: 16,
-    img: 'images/q16.jpg',
+    img: 'images/q9.jpg',
     answers: [
-      { number: 1, img: "URL('images/16a.jpg')", correct: false },
-      { number: 2, img: "URL('images/16b.jpg')", correct: true },
-      { number: 3, img: "URL('images/16c.jpg')", correct: false },
-      { number: 4, img: "URL('images/16d.jpg')", correct: false },
-      { number: 5, img: "URL('images/16e.jpg')", correct: false },
-      { number: 6, img: "URL('images/16f.jpg')", correct: false },
+      { number: 1, img: "URL('images/9a.jpg')", correct: false },
+      { number: 2, img: "URL('images/9b.jpg')", correct: false },
+      { number: 3, img: "URL('images/9c.jpg')", correct: false },
+      { number: 4, img: "URL('images/9d.jpg')", correct: false },
+      { number: 5, img: "URL('images/9e.jpg')", correct: true },
+      { number: 6, img: "URL('images/9f.jpg')", correct: false },
     ]
   }, 
   {
     id: 17,
+    img: 'images/q23.jpg',
+    answers: [
+      { number: 1, img: "URL('images/23a.jpg')", correct: false },
+      { number: 2, img: "URL('images/23b.jpg')", correct: false },
+      { number: 3, img: "URL('images/23c.jpg')", correct: false },
+      { number: 4, img: "URL('images/23d.jpg')", correct: true },
+      { number: 5, img: "URL('images/23e.jpg')", correct: false },
+      { number: 6, img: "URL('images/23f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 18,
+    img: 'images/q24.jpg',
+    answers: [
+      { number: 1, img: "URL('images/24a.jpg')", correct: false },
+      { number: 2, img: "URL('images/24b.jpg')", correct: false },
+      { number: 3, img: "URL('images/24c.jpg')", correct: false },
+      { number: 4, img: "URL('images/24d.jpg')", correct: false },
+      { number: 5, img: "URL('images/24e.jpg')", correct: true },
+      { number: 6, img: "URL('images/24f.jpg')", correct: false },
+    ]
+  }, 
+  {
+    id: 19,
+    img: 'images/q10.jpg',
+    answers: [
+      { number: 1, img: "URL('images/10a.jpg')", correct: false },
+      { number: 2, img: "URL('images/10b.jpg')", correct: false },
+      { number: 3, img: "URL('images/10c.jpg')", correct: false },
+      { number: 4, img: "URL('images/10d.jpg')", correct: false },
+      { number: 5, img: "URL('images/10e.jpg')", correct: true },
+      { number: 6, img: "URL('images/10f.jpg')", correct: false },
+    ]
+
+  }, 
+  {
+    id: 20,
+    img: 'images/q11.jpg',
+    answers: [
+      { number: 1, img: "URL('images/11a.jpg')", correct: false },
+      { number: 2, img: "URL('images/11b.jpg')", correct: false },
+      { number: 3, img: "URL('images/11c.jpg')", correct: false },
+      { number: 4, img: "URL('images/11d.jpg')", correct: true },
+      { number: 5, img: "URL('images/11e.jpg')", correct: false },
+      { number: 6, img: "URL('images/11f.jpg')", correct: false },
+    ]
+
+  },
+  {
+    id: 21,
     img: 'images/q17.jpg',
     answers: [
       { number: 1, img: "URL('images/17a.jpg')", correct: false },
@@ -463,54 +513,6 @@ const questions = [
       { number: 4, img: "URL('images/17d.jpg')", correct: false },
       { number: 5, img: "URL('images/17e.jpg')", correct: false },
       { number: 6, img: "URL('images/17f.jpg')", correct: false },
-    ]
-  }, 
-  {
-    id: 18,
-    img: 'images/q18.jpg',
-    answers: [
-      { number: 1, img: "URL('images/18a.jpg')", correct: false },
-      { number: 2, img: "URL('images/18b.jpg')", correct: false },
-      { number: 3, img: "URL('images/18c.jpg')", correct: false },
-      { number: 4, img: "URL('images/18d.jpg')", correct: false },
-      { number: 5, img: "URL('images/18e.jpg')", correct: false },
-      { number: 6, img: "URL('images/18f.jpg')", correct: true },
-    ]
-  }, 
-  {
-    id: 19,
-    img: 'images/q19.jpg',
-    answers: [
-      { number: 1, img: "URL('images/19a.jpg')", correct: true },
-      { number: 2, img: "URL('images/19b.jpg')", correct: false },
-      { number: 3, img: "URL('images/19c.jpg')", correct: false },
-      { number: 4, img: "URL('images/19d.jpg')", correct: false },
-      { number: 5, img: "URL('images/19e.jpg')", correct: false },
-      { number: 6, img: "URL('images/19f.jpg')", correct: false },
-    ]
-  }, 
-  {
-    id: 20,
-    img: 'images/q20.jpg',
-    answers: [
-      { number: 1, img: "URL('images/20a.jpg')", correct: false },
-      { number: 2, img: "URL('images/20b.jpg')", correct: false },
-      { number: 3, img: "URL('images/20c.jpg')", correct: false },
-      { number: 4, img: "URL('images/20d.jpg')", correct: true },
-      { number: 5, img: "URL('images/20e.jpg')", correct: false },
-      { number: 6, img: "URL('images/20f.jpg')", correct: false },
-    ]
-  },
-  {
-    id: 21,
-    img: 'images/q21.jpg',
-    answers: [
-      { number: 1, img: "URL('images/21a.jpg')", correct: false },
-      { number: 2, img: "URL('images/21b.jpg')", correct: false },
-      { number: 3, img: "URL('images/21c.jpg')", correct: false },
-      { number: 4, img: "URL('images/21d.jpg')", correct: false },
-      { number: 5, img: "URL('images/21e.jpg')", correct: false },
-      { number: 6, img: "URL('images/21f.jpg')", correct: true },
     ]
   },
   {
@@ -527,28 +529,40 @@ const questions = [
   }, 
   {
     id: 23,
-    img: 'images/q23.jpg',
+    img: 'images/q18.jpg',
     answers: [
-      { number: 1, img: "URL('images/23a.jpg')", correct: false },
-      { number: 2, img: "URL('images/23b.jpg')", correct: false },
-      { number: 3, img: "URL('images/23c.jpg')", correct: false },
-      { number: 4, img: "URL('images/23d.jpg')", correct: true },
-      { number: 5, img: "URL('images/23e.jpg')", correct: false },
-      { number: 6, img: "URL('images/23f.jpg')", correct: false },
+      { number: 1, img: "URL('images/18a.jpg')", correct: false },
+      { number: 2, img: "URL('images/18b.jpg')", correct: false },
+      { number: 3, img: "URL('images/18c.jpg')", correct: false },
+      { number: 4, img: "URL('images/18d.jpg')", correct: false },
+      { number: 5, img: "URL('images/18e.jpg')", correct: false },
+      { number: 6, img: "URL('images/18f.jpg')", correct: true },
     ]
   },
   {
     id: 24,
-    img: 'images/q24.jpg',
+    img: 'images/q21.jpg',
     answers: [
-      { number: 1, img: "URL('images/24a.jpg')", correct: false },
-      { number: 2, img: "URL('images/24b.jpg')", correct: false },
-      { number: 3, img: "URL('images/24c.jpg')", correct: false },
-      { number: 4, img: "URL('images/24d.jpg')", correct: false },
-      { number: 5, img: "URL('images/24e.jpg')", correct: true },
-      { number: 6, img: "URL('images/24f.jpg')", correct: false },
+      { number: 1, img: "URL('images/21a.jpg')", correct: false },
+      { number: 2, img: "URL('images/21b.jpg')", correct: false },
+      { number: 3, img: "URL('images/21c.jpg')", correct: false },
+      { number: 4, img: "URL('images/21d.jpg')", correct: false },
+      { number: 5, img: "URL('images/21e.jpg')", correct: false },
+      { number: 6, img: "URL('images/21f.jpg')", correct: true },
     ]
-  },  
+  },
+  {
+    id: 25,
+    img: 'images/q25.jpg',
+    answers: [
+      { number: 1, img: "URL('images/25a.jpg')", correct: false },
+      { number: 2, img: "URL('images/25b.jpg')", correct: false },
+      { number: 3, img: "URL('images/25c.jpg')", correct: true },
+      { number: 4, img: "URL('images/25d.jpg')", correct: false },
+      { number: 5, img: "URL('images/25e.jpg')", correct: false },
+      { number: 6, img: "URL('images/25f.jpg')", correct: false },
+    ]
+  }
 ]
 
 selectedAnswerList = []
