@@ -536,7 +536,19 @@ const questions = [
       { number: 5, img: "URL('images/23e.jpg')", correct: false },
       { number: 6, img: "URL('images/23f.jpg')", correct: false },
     ]
-  }, 
+  },
+  {
+    id: 24,
+    img: 'images/q24.jpg',
+    answers: [
+      { number: 1, img: "URL('images/24a.jpg')", correct: false },
+      { number: 2, img: "URL('images/24b.jpg')", correct: false },
+      { number: 3, img: "URL('images/24c.jpg')", correct: false },
+      { number: 4, img: "URL('images/24d.jpg')", correct: false },
+      { number: 5, img: "URL('images/24e.jpg')", correct: true },
+      { number: 6, img: "URL('images/24f.jpg')", correct: false },
+    ]
+  },  
 ]
 
 selectedAnswerList = []
