@@ -93,6 +93,7 @@ function loadEndPage(scores) {
 // shuffles the questions and unhides them
 function startQuiz() {
   quizStarted = true
+  prevButton.innerText = 'Prev'
   infoText.classList.add('hide')
   versionNo.classList.add('hide')
   startButton.classList.add('hide')
