@@ -95,7 +95,7 @@ function loadEndPage(scores) {
 function startQuiz() {
   quizStarted = true
   prevButton.innerText = 'Prev'
-  hudElements.style.height= '30%'
+  hudElements.style.height = '30%'
   infoText.classList.add('hide')
   versionNo.classList.add('hide')
   startButton.classList.add('hide')
@@ -145,18 +145,21 @@ function setQuestion() {
 
 // controls hide for next & prev, deletes previous answer buttons
 function resetState() {
-  nextButton.classList.remove('hide')
-  prevButton.classList.remove('hide')
   if (currentQuestionIndex + 1 == questions.length) {
     nextButton.classList.add('hide')
-  } 
+  } else {
+    nextButton.classList.remove('hide')
+  }
   if (currentQuestionIndex == 0){
     prevButton.classList.add('hide')
+  } else {
+    prevButton.classList.remove('hide')
   }
 
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   }
+  answerButtonsElement.classList.add('hide')
 }
 
 // updates progress bar
@@ -185,7 +188,7 @@ function showQuestion(question) {
         button.classList.add('selected')
       }
     } 
-    
+    answerButtonsElement.classList.remove('hide')
     button.addEventListener('click', selectAnswer)
     answerButtonsElement.appendChild(button)
   })
