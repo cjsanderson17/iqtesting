@@ -1,4 +1,5 @@
 // defining elements
+const hudElements = document.getElementById('hud-elements')
 const versionNo = document.getElementById('version')
 const continueButton = document.getElementById('continue-btn')
 const startButton = document.getElementById('start-btn')
@@ -94,6 +95,7 @@ function loadEndPage(scores) {
 function startQuiz() {
   quizStarted = true
   prevButton.innerText = 'Prev'
+  hudElements.style.height= '30%'
   infoText.classList.add('hide')
   versionNo.classList.add('hide')
   startButton.classList.add('hide')
