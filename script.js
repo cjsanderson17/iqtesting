@@ -87,7 +87,9 @@ function loadEndPage(scores) {
   scoreText.classList.remove('hide')
   saveStatusText.classList.remove('hide')
   endText.classList.remove('hide')
-  scoreText.innerText = "Your score was: " + scores[0] + " / " + questions.length + "\nIQ score cannot be accurately estimated in this version"
+  scoreText.innerText = "Your score was: " + scores[0] + " / " + questions.length + 
+  "\nYour estimated IQ is: " + scores[1] + 
+  "\nThis is a rough estimate based on a small sample size. If you want a more accurate estimate, visit a more reputable body"
 
 }
 
@@ -246,13 +248,15 @@ function endQuiz() {
 //
 function calculateScore(list, noOfQuestions) {
   let score = 0
+  // to be updated each version.
+  let mean = 15.5
+  let stdev = 3.5188567662205963
   for (let i = 1; i <= noOfQuestions; i++) {
     if (list[3*i - 1] == "true") {
       score++
     }
   }
-  //const iq = Math.floor(140 * score / noOfQuestions)
-  iq = 0 // currently cant calculate IQ
+  const iq = Math.floor(100 + 15*((score - mean) / stdev))
   scores = [score, iq]
   return scores
 }

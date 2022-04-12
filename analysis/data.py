@@ -30,8 +30,8 @@ def CalculateDeviation(scoreslist):
 
 def CalculateIQ(data, scoreslist):
     iqlist = []
+    print("Stdev: ", data[1])
     for score in scoreslist:
-        print(score)
         zscore = (score - data[0]) / data[1]
         iqscore = 100 + (zscore * 15)
         iqstring = "Score: {}, IQ: {}".format(score, iqscore)
