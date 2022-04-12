@@ -1,4 +1,5 @@
-from statistics import mean
+import statistics
+import math
 from scipy.stats import norm
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -8,15 +9,35 @@ import json
 alldata = json.load(open('analysis/data.json', 'r'))
 
 # Function to graph the score distribution
-def GraphScores():
+def GraphScores(mode):
     scores = []
     for User in alldata['data']:
         scores.append(int(User['Score']))
     scores.sort()
-    plt.hist(scores, bins=np.arange(27)-0.5, edgecolor='black')
-    plt.xlabel('Amount')
-    plt.ylabel('Scores')
-    plt.show()
+    if mode == "c":
+        calculationdata = CalculateDeviation(scores)
+        CalculateIQ(calculationdata, scores)
+    else:
+        plt.hist(scores, bins=np.arange(27)-0.5, edgecolor='black')
+        plt.xlabel('Amount')
+        plt.ylabel('Scores')
+        plt.show()
+
+def CalculateDeviation(scoreslist):
+    meanscore = statistics.mean(scoreslist)
+    deviation = statistics.stdev(scoreslist)
+    return(meanscore, deviation)
+
+def CalculateIQ(data, scoreslist):
+    iqlist = []
+    for score in scoreslist:
+        print(score)
+        zscore = (score - data[0]) / data[1]
+        iqscore = 100 + (zscore * 15)
+        iqstring = "Score: {}, IQ: {}".format(score, iqscore)
+        iqlist.append(iqstring)
+    print(*iqlist, sep='\n')
+
 
 # Function to graph the responses to each question
 def GraphResponses(mode):
@@ -70,6 +91,6 @@ def GraphResponsesByCorrects(df):
     plt.ylabel('Correct Responses')
     plt.show()
 
-#GraphScores()
-GraphResponses('q')
-GraphResponses('c')
+GraphScores("c")
+#GraphResponses('q')
+#GraphResponses('c')

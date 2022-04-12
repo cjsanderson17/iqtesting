@@ -182,7 +182,7 @@ function showQuestion(question) {
     button.dataset.id = question.id
     button.classList.add('answer-btns', 'btn')
 
-    const questionIndex = selectedAnswerList.indexOf('id: ' + (currentQuestionIndex + 1))
+    const questionIndex = selectedAnswerList.indexOf('id: ' + button.dataset.id)
     if (questionIndex != -1) {
       if (selectedAnswerList[questionIndex + 1] == button.dataset.number) {
         button.classList.add('selected')
@@ -208,13 +208,14 @@ function selectAnswer(e) {
     selectedAnswerList[questionIndex + 1] = (selectedButton.dataset.number)
     selectedAnswerList[questionIndex + 2] = (selectedButton.dataset.correct)
     firstTimeSelect = false
+    console.log('in list already')
   } else {
     selectedAnswerList.push('id: ' + (selectedButton.dataset.id), selectedButton.dataset.number, selectedButton.dataset.correct)
     firstTimeSelect = true
   }
   updateProgress()
   updateFinish()
-  if (firstTimeSelect == true && (currentQuestionIndex + 1) != questions.length && selectedAnswerList.indexOf('id: ' + (currentQuestionIndex + 2)) == -1) {
+  if (firstTimeSelect == true && (currentQuestionIndex + 1) != questions.length) {
     firstTimeSelect = false
     currentQuestionIndex++
     setQuestion()
