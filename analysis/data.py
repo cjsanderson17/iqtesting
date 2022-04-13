@@ -26,11 +26,11 @@ def GraphScores(mode):
 def CalculateDeviation(scoreslist):
     meanscore = statistics.mean(scoreslist)
     deviation = statistics.stdev(scoreslist)
+    print("mean: ", meanscore, "stdev: ", deviation)
     return(meanscore, deviation)
 
 def CalculateIQ(data, scoreslist):
     iqlist = []
-    print("Stdev: ", data[1])
     for score in scoreslist:
         zscore = (score - data[0]) / data[1]
         iqscore = 100 + (zscore * 15)
