@@ -88,8 +88,8 @@ function loadEndPage(scores) {
   saveStatusText.classList.remove('hide')
   endText.classList.remove('hide')
   scoreText.innerText = "Your score was: " + scores[0] + " / " + questions.length + 
-  "\nYour estimated IQ is: " + scores[1] + 
-  "\nThis is a rough estimate based on a small sample size. If you want a more accurate estimate, visit a more reputable body"
+  "\n\nYour estimated IQ is: " + scores[1] + 
+  "\n\nThis is a rough estimate calculated based on the results from a small sample size. If you want a more accurate estimate, visit a more reputable body"
 
 }
 
