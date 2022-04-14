@@ -92,5 +92,5 @@ def GraphResponsesByCorrects(df):
     plt.show()
 
 GraphScores("c")
-#GraphResponses('q')
-#GraphResponses('c')
+GraphResponses('q')
+GraphResponses('c')
