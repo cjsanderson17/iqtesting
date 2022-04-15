@@ -249,8 +249,8 @@ function endQuiz() {
 function calculateScore(list, noOfQuestions) {
   let score = 0
   // to be updated each version.
-  let mean = 15.5
-  let stdev = 3.106794797382582
+  let mean = 15.4
+  let stdev = 3.082207001484488
   for (let i = 1; i <= noOfQuestions; i++) {
     if (list[3*i - 1] == "true") {
       score++
@@ -351,18 +351,6 @@ const questions = [
     ]
   },
   {
-    id: 4,
-    img: 'images/q1.jpg',
-    answers: [
-      { number: 1, img: "URL('images/1a.jpg')", correct: false },
-      { number: 2, img: "URL('images/1b.jpg')", correct: false },
-      { number: 3, img: "URL('images/1c.jpg')", correct: false },
-      { number: 4, img: "URL('images/1d.jpg')", correct: true },
-      { number: 5, img: "URL('images/1e.jpg')", correct: false },
-      { number: 6, img: "URL('images/1f.jpg')", correct: false },
-    ]
-  },
-  {
     id: 6,
     img: 'images/q6.jpg',
     answers: [
@@ -372,6 +360,18 @@ const questions = [
       { number: 4, img: "URL('images/6d.jpg')", correct: false },
       { number: 5, img: "URL('images/6e.jpg')", correct: false },
       { number: 6, img: "URL('images/6f.jpg')", correct: true },
+    ]
+  },
+  {
+    id: 4,
+    img: 'images/q1.jpg',
+    answers: [
+      { number: 1, img: "URL('images/1a.jpg')", correct: false },
+      { number: 2, img: "URL('images/1b.jpg')", correct: false },
+      { number: 3, img: "URL('images/1c.jpg')", correct: false },
+      { number: 4, img: "URL('images/1d.jpg')", correct: true },
+      { number: 5, img: "URL('images/1e.jpg')", correct: false },
+      { number: 6, img: "URL('images/1f.jpg')", correct: false },
     ]
   },
   {

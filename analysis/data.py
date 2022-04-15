@@ -90,7 +90,8 @@ def GraphResponsesByCorrects(df):
     plt.xlabel('Question Numbers')
     plt.ylabel('Correct Responses')
     plt.show()
-
+    
+GraphScores("o")
 GraphScores("c")
 GraphResponses('q')
 GraphResponses('c')
