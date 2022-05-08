@@ -138,7 +138,7 @@ function startTimer(time) {
   }
 }
 
-//
+// prepares to display the next question
 function setQuestion() {
   resetState()
   updateProgress()
@@ -245,12 +245,12 @@ function endQuiz() {
   loadEndPage(score)
 }
 
-//
+// calculates IQ score based on standard deviation of previous samples
 function calculateScore(list, noOfQuestions) {
   let score = 0
   // to be updated each version.
-  let mean = 15.4
-  let stdev = 3.082207001484488
+  let mean = 16.31578947368421  
+  let stdev = 3.0423081858589476
   for (let i = 1; i <= noOfQuestions; i++) {
     if (list[3*i - 1] == "true") {
       score++
@@ -261,7 +261,7 @@ function calculateScore(list, noOfQuestions) {
   return scores
 }
 
-//
+// calls post request to database from php file
 function saveUserData(userTime, answerList, scores) {
   let answersString = answerList.toString()
   $.post('saveuserdata.php',
@@ -279,6 +279,7 @@ function saveUserData(userTime, answerList, scores) {
   })
 }
 
+// question images and answers
 const questions = [
   {
     id: 1,
