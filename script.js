@@ -249,7 +249,7 @@ function endQuiz() {
 function calculateScore(list, noOfQuestions) {
   let score = 0
   // to be updated each version.
-  let mean = 16.31578947368421  
+  let mean = 16.31578947368421
   let stdev = 3.0423081858589476
   for (let i = 1; i <= noOfQuestions; i++) {
     if (list[3*i - 1] == "true") {
