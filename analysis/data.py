@@ -169,11 +169,11 @@ def GraphReliability():
     for i in range(len(oddscores)):
         difflist.append(oddscores[i] - evenscores[i])
     #plt.scatter(range(1,len(difflist) + 1), difflist)
-    plt.scatter(range(1,len(oddscores) + 1), oddscores, alpha=0.5)
-    plt.scatter(range(1,len(evenscores) + 1), evenscores, alpha=0.5)
-    #plt.scatter(oddscores, evenscores, alpha=0.5)
-    plt.xlabel('Participant ID')
-    plt.ylabel('Difference in correctly answered odd / even questions')
+    #plt.scatter(range(1,len(oddscores) + 1), oddscores, alpha=0.5)
+    #plt.scatter(range(1,len(evenscores) + 1), evenscores, alpha=0.5)
+    plt.scatter(oddscores, evenscores, alpha=0.5)
+    plt.xlabel('Correct responses to odd indexed questions')
+    plt.ylabel('Correct responses to even indexed questions')
     plt.show()
     
 # run functions to plot graphs

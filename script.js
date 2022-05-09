@@ -89,7 +89,7 @@ function loadEndPage(scores) {
   endText.classList.remove('hide')
   scoreText.innerText = "Your score was: " + scores[0] + " / " + questions.length + 
   "\n\nYour estimated IQ is: " + scores[1] + 
-  "\n\nThis is a rough estimate calculated based on the results from a small sample size. If you want a more accurate estimate, visit a more reputable body"
+  "\n\nDISCLAIMER: This is a rough estimate calculated based on the results from a small sample size. If you want a more accurate estimate, visit a more reputable body"
 
 }
 
@@ -210,11 +210,11 @@ function selectAnswer(e) {
     selectedAnswerList[questionIndex + 1] = (selectedButton.dataset.number)
     selectedAnswerList[questionIndex + 2] = (selectedButton.dataset.correct)
     firstTimeSelect = false
-    console.log('in list already')
   } else {
     selectedAnswerList.push('id: ' + (selectedButton.dataset.id), selectedButton.dataset.number, selectedButton.dataset.correct)
     firstTimeSelect = true
   }
+  // updates the progress bar and finish button availability
   updateProgress()
   updateFinish()
   if (firstTimeSelect == true && (currentQuestionIndex + 1) != questions.length) {
@@ -251,12 +251,14 @@ function calculateScore(list, noOfQuestions) {
   // to be updated each version.
   let mean = 16.31578947368421
   let stdev = 3.0423081858589476
+  // calculates raw score
   for (let i = 1; i <= noOfQuestions; i++) {
     if (list[3*i - 1] == "true") {
       score++
     }
   }
-  const iq = Math.floor(100 + 15*((score - mean) / stdev))
+  // IQ score calculation
+  const iq = Math.round(100 + 15*((score - mean) / stdev))
   scores = [score, iq]
   return scores
 }
