@@ -26,9 +26,9 @@ let counter = 1200
 let quizStarted = false
 
 // defines behaviour for buttons when clicked
-continueButton.addEventListener('click', loadInfoPage)
+continueButton.addEventListener('click', loadTermsPage)
 
-startButton.addEventListener('click', startQuiz)
+startButton.addEventListener('click', startTest)
 
 finishButton.addEventListener('click', () => {
   if (finishButton.classList.contains('unavailable') == false) {
@@ -42,15 +42,15 @@ nextButton.addEventListener('click', () => {
 
 prevButton.addEventListener('click', () => {
   if (quizStarted == false) {
-    loadWelcomePage()
+    loadInstructionsPage()
   } else {
     currentQuestionIndex--
     setQuestion()
   }
 })
 
-// loads the welcome page
-function loadWelcomePage() {
+// loads the instructions page
+function loadInstructionsPage() {
   startButton.classList.add('hide')
   prevButton.classList.add('hide')
   infoText.classList.add('hide')
@@ -62,7 +62,7 @@ function loadWelcomePage() {
 }
 
 // loads the information page
-function loadInfoPage() {
+function loadTermsPage() {
   welcomeText.classList.add('hide')
   continueButton.classList.add('hide')
   exampleWindow.classList.add('hide')
@@ -94,7 +94,7 @@ function loadEndPage(scores) {
 }
 
 // shuffles the questions and unhides them
-function startQuiz() {
+function startTest() {
   quizStarted = true
   prevButton.innerText = 'Prev'
   hudElements.style.height = '30%'
