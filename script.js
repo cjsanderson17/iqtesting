@@ -71,28 +71,6 @@ function loadTermsPage() {
   prevButton.classList.remove('hide')
 }
 
-// loads the end page
-function loadEndPage(scores) {
-  questionNumberText.classList.add('hide')
-  nextButton.classList.add('hide')
-  prevButton.classList.add('hide')
-  finishButton.classList.add('hide')
-  countdownTimer.classList.add('hide')
-  progressText.classList.add('hide')
-  progressBarElement.classList.add('hide')
-  progressBarFull.classList.add('hide')
-  answerButtonsElement.classList.add('hide')
-  questionImage.classList.add('hide')
-
-  scoreText.classList.remove('hide')
-  saveStatusText.classList.remove('hide')
-  endText.classList.remove('hide')
-  scoreText.innerText = "Your score was: " + scores[0] + " / " + questions.length + 
-  "\n\nYour estimated IQ is: " + scores[1] + 
-  "\n\nDISCLAIMER: This is a rough estimate calculated based on the results from a small sample size. If you want a more accurate estimate, visit a more reputable body"
-
-}
-
 // shuffles the questions and unhides them
 function startTest() {
   quizStarted = true
@@ -279,6 +257,26 @@ function saveUserData(userTime, answerList, scores) {
     setTimeout(function() {
       $('saveStatusText').fadeOut(100); }, 3000);
   })
+}
+
+// loads the end page
+function loadEndPage(scores) {
+  questionNumberText.classList.add('hide')
+  nextButton.classList.add('hide')
+  prevButton.classList.add('hide')
+  finishButton.classList.add('hide')
+  countdownTimer.classList.add('hide')
+  progressText.classList.add('hide')
+  progressBarElement.classList.add('hide')
+  progressBarFull.classList.add('hide')
+  answerButtonsElement.classList.add('hide')
+  questionImage.classList.add('hide')
+  scoreText.classList.remove('hide')
+  saveStatusText.classList.remove('hide')
+  endText.classList.remove('hide')
+  scoreText.innerText = "Your score was: " + scores[0] + " / " + questions.length + 
+  "\n\nYour estimated IQ is: " + scores[1] + 
+  "\n\nDISCLAIMER: This is a rough estimate calculated based on the results from a small sample size. If you want a more accurate estimate, visit a more reputable body"
 }
 
 // question images and answers
